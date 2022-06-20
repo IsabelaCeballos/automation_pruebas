@@ -36,8 +36,13 @@ public class PurchasingProcessStepDefinition {
         productOnePageStep.clickButtonAddCart();
         productOnePageStep.handlePrompt();
         productOnePageStep.clickLnkShoppingCart();
-        productOnePageStep.localStorage();
-        //shoppingCartStep.getDetails();
+        //productOnePageStep.localStorage();
+        shoppingCartStep.verificationRAM();
+        shoppingCartStep.verificationHDD();
+        shoppingCartStep.verificationSoftwareOne();
+        shoppingCartStep.verificationSoftwareTwo();
+        shoppingCartStep.verificationPrice();
+        //shoppingCartStep.verificationTotal();
     }
     @Then("the user can see the detail of the added products")
     public void theUserCanSeeTheDetailOfTheAddedProducts() {

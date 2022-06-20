@@ -1,0 +1,435 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html lang="en" dir="ltr" class="html-shopping-cart-page"&gt;<br/>
+ &lt;head&gt;<br/>
+  &lt;title&gt;nopCommerce demo store. Shopping Cart&lt;/title&gt;<br/>
+  &lt;meta charset="UTF-8"&gt;<br/>
+  &lt;meta name="description" content="nopCommerce is the open-source eCommerce solution. nopCommerce is available for free. It has everything you need to get started in selling physical and digital goods over the internet."&gt;<br/>
+  &lt;meta name="keywords" content="open source ecommerce,open-source ecommerce,C# shopping cart,C#,asp.net e-commerce storefront,asp.net web store,.net ecommerce,C# shopping cart,shopping cart,e-commerce"&gt;<br/>
+  &lt;meta name="generator" content="nopCommerce"&gt;<br/>
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;<br/>
+  &lt;link rel="stylesheet" href="/css/ShoppingCart.Head.styles.css?v=AQu7uXAK-SC0xd6rJjR1St8FjRg"&gt;<br/>
+ &lt;/head&gt;<br/>
+ &lt;body&gt;<br/>
+  &lt;div class="ajax-loading-block-window" style="overflow: hidden; height: 25.5396px; padding: 0px; margin: -12.7698px 0px 0px -12.7698px; width: 25.5396px; opacity: 0.798112;"&gt;&lt;/div&gt;<br/>
+  &lt;div id="dialog-notifications-success" title="Notification" style="display:none"&gt;&lt;/div&gt;<br/>
+  &lt;div id="dialog-notifications-error" title="Error" style="display:none"&gt;&lt;/div&gt;<br/>
+  &lt;div id="dialog-notifications-warning" title="Warning" style="display:none"&gt;&lt;/div&gt;<br/>
+  &lt;div id="bar-notification" class="bar-notification-container" data-close="Close"&gt;&lt;/div&gt;&lt;!--[if lte IE 8]&gt;&lt;div style=clear:both;height:59px;text-align:center;position:relative&gt;&lt;a href=http://www.microsoft.com/windows/internet-explorer/default.aspx target=_blank&gt; &lt;img src=/Themes/DefaultClean/Content/images/ie_warning.jpg height=42 width=820 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."&gt; &lt;/a&gt;&lt;/div&gt;&lt;![endif]--&gt;<br/>
+  &lt;div class="master-wrapper-page"&gt;<br/>
+   &lt;div class="header"&gt;<br/>
+    &lt;div class="header-upper"&gt;<br/>
+     &lt;div class="header-selectors-wrapper"&gt;<br/>
+      &lt;div class="currency-selector"&gt;<br/>
+       &lt;select id="customerCurrency" name="customerCurrency" onchange="setLocation(this.value)" aria-label="Currency selector"&gt;&lt;option selected value="https://demo.nopcommerce.com/changecurrency/1?returnUrl=%2Fcart"&gt;US Dollar&lt;/option&gt;&lt;option value="https://demo.nopcommerce.com/changecurrency/6?returnUrl=%2Fcart"&gt;Euro&lt;/option&gt;&lt;/select&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="header-links-wrapper"&gt;<br/>
+      &lt;div class="header-links"&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="/register?returnUrl=%2Fcart" class="ico-register"&gt;Register&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="/login?returnUrl=%2Fcart" class="ico-login"&gt;Log in&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="/wishlist" class="ico-wishlist"&gt; &lt;span class="wishlist-label"&gt;Wishlist&lt;/span&gt; &lt;span class="wishlist-qty"&gt;(0)&lt;/span&gt; &lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li id="topcartlink"&gt;&lt;a href="/cart" class="ico-cart"&gt; &lt;span class="cart-label"&gt;Shopping cart&lt;/span&gt; &lt;span class="cart-qty"&gt;(1)&lt;/span&gt; &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div id="flyout-cart" class="flyout-cart"&gt;<br/>
+       &lt;div class="mini-shopping-cart"&gt;<br/>
+        &lt;div class="count"&gt;<br/>
+         There are &lt;a href="/cart"&gt;1 item(s)&lt;/a&gt; in your cart.<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="items"&gt;<br/>
+         &lt;div class="item first"&gt;<br/>
+          &lt;div class="picture"&gt;<br/>
+           &lt;a href="/build-your-own-computer" title="Show details for Build your own computer"&gt; &lt;img alt="Picture of Build your own computer" src="https://demo.nopcommerce.com/images/thumbs/0000020_build-your-own-computer_70.jpeg" title="Show details for Build your own computer"&gt; &lt;/a&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="product"&gt;<br/>
+           &lt;div class="name"&gt;<br/>
+            &lt;a href="/build-your-own-computer"&gt;Build your own computer&lt;/a&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="attributes"&gt;<br/>
+            Processor: 2.5 GHz Intel Pentium Dual-Core E2200 [+$15.00]<br/>
+            &lt;br&gt;RAM: 4GB [+$20.00]<br/>
+            &lt;br&gt;HDD: 400 GB [+$100.00]<br/>
+            &lt;br&gt;OS: Vista Home [+$50.00]<br/>
+            &lt;br&gt;Software: Microsoft Office [+$50.00]<br/>
+            &lt;br&gt;Software: Acrobat Reader [+$10.00]<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="price"&gt;<br/>
+            Unit price: &lt;span&gt;$1,445.00&lt;/span&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="quantity"&gt;<br/>
+            Quantity: &lt;span&gt;1&lt;/span&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+         &lt;/div&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="totals"&gt;<br/>
+         Sub-Total: &lt;strong&gt;$1,445.00&lt;/strong&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="buttons"&gt;<br/>
+         &lt;button type="button" class="button-1 cart-button" onclick="setLocation(&quot;/cart&quot;)"&gt;Go to cart&lt;/button&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="header-lower"&gt;<br/>
+     &lt;div class="header-logo"&gt;<br/>
+      &lt;a href="/"&gt; &lt;img alt="nopCommerce demo store" src="https://demo.nopcommerce.com/Themes/DefaultClean/Content/images/logo.png"&gt; &lt;/a&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="search-box store-search-box"&gt;<br/>
+      &lt;form method="get" id="small-search-box-form" action="/search"&gt;<br/>
+       &lt;input type="text" class="search-box-text ui-autocomplete-input" id="small-searchterms" autocomplete="off" name="q" placeholder="Search store" aria-label="Search store"&gt; &lt;button type="submit" class="button-1 search-box-button"&gt;Search&lt;/button&gt;<br/>
+      &lt;/form&gt;<br/>
+      &lt;ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"&gt;&lt;/ul&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+   &lt;div class="header-menu"&gt;<br/>
+    &lt;ul class="top-menu notmobile"&gt;<br/>
+     &lt;li&gt;&lt;a href="/computers"&gt;Computers &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/desktops"&gt;Desktops &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/notebooks"&gt;Notebooks &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/software"&gt;Software &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/electronics"&gt;Electronics &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/camera-photo"&gt;Camera &amp; photo &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/cell-phones"&gt;Cell phones &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/others"&gt;Others &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/apparel"&gt;Apparel &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/shoes"&gt;Shoes &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/clothing"&gt;Clothing &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/accessories"&gt;Accessories &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/digital-downloads"&gt;Digital downloads &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/books"&gt;Books &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/jewelry"&gt;Jewelry &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/gift-cards"&gt;Gift Cards &lt;/a&gt;&lt;/li&gt;<br/>
+    &lt;/ul&gt;<br/>
+    &lt;div class="menu-toggle"&gt;<br/>
+     Categories<br/>
+    &lt;/div&gt;<br/>
+    &lt;ul class="top-menu mobile"&gt;<br/>
+     &lt;li&gt;&lt;a href="/computers"&gt;Computers &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/desktops"&gt;Desktops &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/notebooks"&gt;Notebooks &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/software"&gt;Software &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/electronics"&gt;Electronics &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/camera-photo"&gt;Camera &amp; photo &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/cell-phones"&gt;Cell phones &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/others"&gt;Others &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/apparel"&gt;Apparel &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/shoes"&gt;Shoes &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/clothing"&gt;Clothing &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/accessories"&gt;Accessories &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/digital-downloads"&gt;Digital downloads &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/books"&gt;Books &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/jewelry"&gt;Jewelry &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/gift-cards"&gt;Gift Cards &lt;/a&gt;&lt;/li&gt;<br/>
+    &lt;/ul&gt;<br/>
+   &lt;/div&gt;<br/>
+   &lt;div class="master-wrapper-content"&gt;<br/>
+    &lt;div class="master-column-wrapper"&gt;<br/>
+     &lt;div class="center-1"&gt;<br/>
+      &lt;div class="page shopping-cart-page"&gt;<br/>
+       &lt;div class="page-title"&gt;<br/>
+        &lt;h1&gt;Shopping cart&lt;/h1&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="page-body"&gt;<br/>
+        &lt;div class="order-summary-content"&gt;<br/>
+         &lt;form method="post" enctype="multipart/form-data" id="shopping-cart-form" action="/cart"&gt;<br/>
+          &lt;div class="table-wrapper"&gt;<br/>
+           &lt;table class="cart"&gt;<br/>
+            &lt;colgroup&gt;<br/>
+             &lt;col width="1"&gt;<br/>
+             &lt;col width="1"&gt;<br/>
+             &lt;col&gt;<br/>
+             &lt;col width="1"&gt;<br/>
+             &lt;col width="1"&gt;<br/>
+             &lt;col width="1"&gt;<br/>
+             &lt;col width="1"&gt;<br/>
+            &lt;/colgroup&gt;<br/>
+            &lt;thead&gt;<br/>
+             &lt;tr&gt;<br/>
+              &lt;th class="sku"&gt;SKU&lt;/th&gt;<br/>
+              &lt;th class="product-picture"&gt;Image&lt;/th&gt;<br/>
+              &lt;th class="product"&gt;Product(s)&lt;/th&gt;<br/>
+              &lt;th class="unit-price"&gt;Price&lt;/th&gt;<br/>
+              &lt;th class="quantity"&gt;Qty.&lt;/th&gt;<br/>
+              &lt;th class="subtotal"&gt;Total&lt;/th&gt;<br/>
+              &lt;th class="remove-from-cart"&gt;Remove&lt;/th&gt;<br/>
+             &lt;/tr&gt;<br/>
+            &lt;/thead&gt;<br/>
+            &lt;tbody&gt;<br/>
+             &lt;tr&gt;<br/>
+              &lt;td class="sku"&gt;&lt;label class="td-title"&gt;SKU:&lt;/label&gt; &lt;span class="sku-number"&gt;COMP_CUST&lt;/span&gt;&lt;/td&gt;<br/>
+              &lt;td class="product-picture"&gt;&lt;a href="/build-your-own-computer"&gt;&lt;img alt="Picture of Build your own computer" src="https://demo.nopcommerce.com/images/thumbs/0000020_build-your-own-computer_80.jpeg" title="Show details for Build your own computer"&gt;&lt;/a&gt;&lt;/td&gt;<br/>
+              &lt;td class="product"&gt;&lt;a href="/build-your-own-computer" class="product-name"&gt;Build your own computer&lt;/a&gt;<br/>
+               &lt;div class="attributes"&gt;<br/>
+                Processor: 2.5 GHz Intel Pentium Dual-Core E2200 [+$15.00]<br/>
+                &lt;br&gt;RAM: 4GB [+$20.00]<br/>
+                &lt;br&gt;HDD: 400 GB [+$100.00]<br/>
+                &lt;br&gt;OS: Vista Home [+$50.00]<br/>
+                &lt;br&gt;Software: Microsoft Office [+$50.00]<br/>
+                &lt;br&gt;Software: Acrobat Reader [+$10.00]<br/>
+               &lt;/div&gt;<br/>
+               &lt;div class="edit-item"&gt;<br/>
+                &lt;a href="https://demo.nopcommerce.com/build-your-own-computer?updatecartitemid=11247"&gt;Edit&lt;/a&gt;<br/>
+               &lt;/div&gt;&lt;/td&gt;<br/>
+              &lt;td class="unit-price"&gt;&lt;label class="td-title"&gt;Price:&lt;/label&gt; &lt;span class="product-unit-price"&gt;$1,445.00&lt;/span&gt;&lt;/td&gt;<br/>
+              &lt;td class="quantity"&gt;&lt;label class="td-title" for="itemquantity11247"&gt;Qty.:&lt;/label&gt; &lt;input name="itemquantity11247" id="itemquantity11247" type="text" value="1" class="qty-input" aria-label="Qty."&gt;&lt;/td&gt;<br/>
+              &lt;td class="subtotal"&gt;&lt;label class="td-title"&gt;Total:&lt;/label&gt; &lt;span class="product-subtotal"&gt;$1,445.00&lt;/span&gt;&lt;/td&gt;<br/>
+              &lt;td class="remove-from-cart"&gt;&lt;input type="checkbox" name="removefromcart" id="removefromcart11247" value="11247" aria-label="Remove"&gt; &lt;button type="button" name="updatecart" class="remove-btn" onclick="$(&quot;#removefromcart11247&quot;).attr(&quot;checked&quot;,!0);$(&quot;#updatecart&quot;).click()"&gt;&lt;/button&gt;&lt;/td&gt;<br/>
+             &lt;/tr&gt;<br/>
+            &lt;/tbody&gt;<br/>
+           &lt;/table&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="cart-options"&gt;<br/>
+           &lt;div class="common-buttons"&gt;<br/>
+            &lt;button type="submit" name="updatecart" id="updatecart" class="button-2 update-cart-button"&gt;Update shopping cart&lt;/button&gt; &lt;button type="submit" name="continueshopping" class="button-2 continue-shopping-button"&gt;Continue shopping&lt;/button&gt; &lt;a href="#estimate-shipping-popup" id="open-estimate-shipping-popup" data-effect="estimate-shipping-popup-zoom-in" class="estimate-shipping-button"&gt; Estimate shipping &lt;/a&gt;<br/>
+            &lt;div id="estimate-shipping-popup" class="estimate-shipping-popup mfp-with-anim mfp-hide"&gt;<br/>
+             &lt;div class="ship-to-title"&gt;<br/>
+              &lt;strong&gt;Ship to&lt;/strong&gt;<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="estimate-shipping-row shipping-address"&gt;<br/>
+              &lt;div class="estimate-shipping-row-item address-item"&gt;<br/>
+               &lt;div class="estimate-shipping-row"&gt;<br/>
+                &lt;select class="estimate-shipping-address-control" data-trigger="country-select" data-url="/country/getstatesbycountryid" data-stateprovince="#StateProvinceId" data-loading="#estimate-shipping-loading-progress" placeholder="Country" id="CountryId" name="CountryId"&gt;&lt;option value="0"&gt;Select country&lt;/option&gt;&lt;option value="1"&gt;United States&lt;/option&gt;&lt;option value="239"&gt;Afghanistan&lt;/option&gt;&lt;option value="212"&gt;Albania&lt;/option&gt;&lt;option value="211"&gt;Algeria&lt;/option&gt;&lt;option value="210"&gt;American Samoa&lt;/option&gt;&lt;option value="195"&gt;Andorra&lt;/option&gt;&lt;option value="183"&gt;Angola&lt;/option&gt;&lt;option value="184"&gt;Anguilla&lt;/option&gt;&lt;option value="185"&gt;Antarctica&lt;/option&gt;&lt;option value="186"&gt;Antigua and Barbuda&lt;/option&gt;&lt;option value="154"&gt;Argentina&lt;/option&gt;&lt;option value="155"&gt;Armenia&lt;/option&gt;&lt;option value="156"&gt;Aruba&lt;/option&gt;&lt;option value="157"&gt;Australia&lt;/option&gt;&lt;option value="158"&gt;Austria&lt;/option&gt;&lt;option value="159"&gt;Azerbaijan&lt;/option&gt;&lt;option value="160"&gt;Bahamas&lt;/option&gt;&lt;option value="187"&gt;Bahrain&lt;/option&gt;&lt;option value="161"&gt;Bangladesh&lt;/option&gt;&lt;option value="188"&gt;Barbados&lt;/option&gt;&lt;option value="162"&gt;Belarus&lt;/option&gt;&lt;option value="163"&gt;Belgium&lt;/option&gt;&lt;option value="164"&gt;Belize&lt;/option&gt;&lt;option value="189"&gt;Benin&lt;/option&gt;&lt;option value="166"&gt;Bermuda&lt;/option&gt;&lt;option value="190"&gt;Bhutan&lt;/option&gt;&lt;option value="179"&gt;Bolivia&lt;/option&gt;&lt;option value="167"&gt;Bosnia and Herzegowina&lt;/option&gt;&lt;option value="191"&gt;Botswana&lt;/option&gt;&lt;option value="192"&gt;Bouvet Island&lt;/option&gt;&lt;option value="168"&gt;Brazil&lt;/option&gt;&lt;option value="193"&gt;British Indian Ocean Territory&lt;/option&gt;&lt;option value="194"&gt;Brunei Darussalam&lt;/option&gt;&lt;option value="169"&gt;Bulgaria&lt;/option&gt;&lt;option value="196"&gt;Burkina Faso&lt;/option&gt;&lt;option value="209"&gt;Burundi&lt;/option&gt;&lt;option value="197"&gt;Cambodia&lt;/option&gt;&lt;option value="198"&gt;Cameroon&lt;/option&gt;&lt;option value="153"&gt;Canada&lt;/option&gt;&lt;option value="199"&gt;Cape Verde&lt;/option&gt;&lt;option value="170"&gt;Cayman Islands&lt;/option&gt;&lt;option value="200"&gt;Central African Republic&lt;/option&gt;&lt;option value="201"&gt;Chad&lt;/option&gt;&lt;option value="171"&gt;Chile&lt;/option&gt;&lt;option value="172"&gt;China&lt;/option&gt;&lt;option value="202"&gt;Christmas Island&lt;/option&gt;&lt;option value="203"&gt;Cocos (Keeling) Islands&lt;/option&gt;&lt;option value="173"&gt;Colombia&lt;/option&gt;&lt;option value="204"&gt;Comoros&lt;/option&gt;&lt;option value="205"&gt;Congo&lt;/option&gt;&lt;option value="206"&gt;Congo (Democratic Republic of the)&lt;/option&gt;&lt;option value="207"&gt;Cook Islands&lt;/option&gt;&lt;option value="174"&gt;Costa Rica&lt;/option&gt;&lt;option value="208"&gt;Cote D'Ivoire&lt;/option&gt;&lt;option value="175"&gt;Croatia&lt;/option&gt;&lt;option value="176"&gt;Cuba&lt;/option&gt;&lt;option value="177"&gt;Cyprus&lt;/option&gt;&lt;option value="178"&gt;Czech Republic&lt;/option&gt;&lt;option value="152"&gt;Denmark&lt;/option&gt;&lt;option value="122"&gt;Djibouti&lt;/option&gt;&lt;option value="240"&gt;Dominica&lt;/option&gt;&lt;option value="165"&gt;Dominican Republic&lt;/option&gt;&lt;option value="151"&gt;East Timor&lt;/option&gt;&lt;option value="135"&gt;Ecuador&lt;/option&gt;&lt;option value="123"&gt;Egypt&lt;/option&gt;&lt;option value="121"&gt;El Salvador&lt;/option&gt;&lt;option value="119"&gt;Equatorial Guinea&lt;/option&gt;&lt;option value="32"&gt;Eritrea&lt;/option&gt;&lt;option value="33"&gt;Estonia&lt;/option&gt;&lt;option value="34"&gt;Ethiopia&lt;/option&gt;&lt;option value="35"&gt;Falkland Islands (Malvinas)&lt;/option&gt;&lt;option value="36"&gt;Faroe Islands&lt;/option&gt;&lt;option value="37"&gt;Fiji&lt;/option&gt;&lt;option value="124"&gt;Finland&lt;/option&gt;&lt;option value="125"&gt;France&lt;/option&gt;&lt;option value="38"&gt;French Guiana&lt;/option&gt;&lt;option value="39"&gt;French Polynesia&lt;/option&gt;&lt;option value="40"&gt;French Southern Territories&lt;/option&gt;&lt;option value="41"&gt;Gabon&lt;/option&gt;&lt;option value="42"&gt;Gambia&lt;/option&gt;&lt;option value="126"&gt;Georgia&lt;/option&gt;&lt;option value="127"&gt;Germany&lt;/option&gt;&lt;option value="43"&gt;Ghana&lt;/option&gt;&lt;option value="128"&gt;Gibraltar&lt;/option&gt;&lt;option value="129"&gt;Greece&lt;/option&gt;&lt;option value="45"&gt;Greenland&lt;/option&gt;&lt;option value="58"&gt;Grenada&lt;/option&gt;&lt;option value="46"&gt;Guadeloupe&lt;/option&gt;&lt;option value="47"&gt;Guam&lt;/option&gt;&lt;option value="130"&gt;Guatemala&lt;/option&gt;&lt;option value="48"&gt;Guinea&lt;/option&gt;&lt;option value="49"&gt;Guinea-bissau&lt;/option&gt;&lt;option value="50"&gt;Guyana&lt;/option&gt;&lt;option value="51"&gt;Haiti&lt;/option&gt;&lt;option value="52"&gt;Heard and Mc Donald Islands&lt;/option&gt;&lt;option value="53"&gt;Honduras&lt;/option&gt;&lt;option value="131"&gt;Hong Kong&lt;/option&gt;&lt;option value="132"&gt;Hungary&lt;/option&gt;&lt;option value="54"&gt;Iceland&lt;/option&gt;&lt;option value="133"&gt;India&lt;/option&gt;&lt;option value="134"&gt;Indonesia&lt;/option&gt;&lt;option value="55"&gt;Iran (Islamic Republic of)&lt;/option&gt;&lt;option value="56"&gt;Iraq&lt;/option&gt;&lt;option value="136"&gt;Ireland&lt;/option&gt;&lt;option value="149"&gt;Israel&lt;/option&gt;&lt;option value="137"&gt;Italy&lt;/option&gt;&lt;option value="138"&gt;Jamaica&lt;/option&gt;&lt;option value="139"&gt;Japan&lt;/option&gt;&lt;option value="140"&gt;Jordan&lt;/option&gt;&lt;option value="141"&gt;Kazakhstan&lt;/option&gt;&lt;option value="57"&gt;Kenya&lt;/option&gt;&lt;option value="31"&gt;Kiribati&lt;/option&gt;&lt;option value="44"&gt;Korea&lt;/option&gt;&lt;option value="142"&gt;Korea, Democratic People's Republic of&lt;/option&gt;&lt;option value="143"&gt;Kuwait&lt;/option&gt;&lt;option value="30"&gt;Kyrgyzstan&lt;/option&gt;&lt;option value="14"&gt;Lao People's Democratic Republic&lt;/option&gt;&lt;option value="2"&gt;Latvia&lt;/option&gt;&lt;option value="3"&gt;Lebanon&lt;/option&gt;&lt;option value="4"&gt;Lesotho&lt;/option&gt;&lt;option value="5"&gt;Liberia&lt;/option&gt;&lt;option value="6"&gt;Libyan Arab Jamahiriya&lt;/option&gt;&lt;option value="7"&gt;Liechtenstein&lt;/option&gt;&lt;option value="8"&gt;Lithuania&lt;/option&gt;&lt;option value="9"&gt;Luxembourg&lt;/option&gt;&lt;option value="10"&gt;Macau&lt;/option&gt;&lt;option value="11"&gt;Macedonia&lt;/option&gt;&lt;option value="12"&gt;Madagascar&lt;/option&gt;&lt;option value="13"&gt;Malawi&lt;/option&gt;&lt;option value="144"&gt;Malaysia&lt;/option&gt;&lt;option value="15"&gt;Maldives&lt;/option&gt;&lt;option value="28"&gt;Mali&lt;/option&gt;&lt;option value="16"&gt;Malta&lt;/option&gt;&lt;option value="17"&gt;Marshall Islands&lt;/option&gt;&lt;option value="18"&gt;Martinique&lt;/option&gt;&lt;option value="19"&gt;Mauritania&lt;/option&gt;&lt;option value="20"&gt;Mauritius&lt;/option&gt;&lt;option value="21"&gt;Mayotte&lt;/option&gt;&lt;option value="145"&gt;Mexico&lt;/option&gt;&lt;option value="22"&gt;Micronesia&lt;/option&gt;&lt;option value="23"&gt;Moldova&lt;/option&gt;&lt;option value="24"&gt;Monaco&lt;/option&gt;&lt;option value="25"&gt;Mongolia&lt;/option&gt;&lt;option value="26"&gt;Montenegro&lt;/option&gt;&lt;option value="27"&gt;Montserrat&lt;/option&gt;&lt;option value="29"&gt;Morocco&lt;/option&gt;&lt;option value="59"&gt;Mozambique&lt;/option&gt;&lt;option value="60"&gt;Myanmar&lt;/option&gt;&lt;option value="61"&gt;Namibia&lt;/option&gt;&lt;option value="92"&gt;Nauru&lt;/option&gt;&lt;option value="93"&gt;Nepal&lt;/option&gt;&lt;option value="146"&gt;Netherlands&lt;/option&gt;&lt;option value="94"&gt;Netherlands Antilles&lt;/option&gt;&lt;option value="95"&gt;New Caledonia&lt;/option&gt;&lt;option value="147"&gt;New Zealand&lt;/option&gt;&lt;option value="96"&gt;Nicaragua&lt;/option&gt;&lt;option value="97"&gt;Niger&lt;/option&gt;&lt;option value="98"&gt;Nigeria&lt;/option&gt;&lt;option value="99"&gt;Niue&lt;/option&gt;&lt;option value="100"&gt;Norfolk Island&lt;/option&gt;&lt;option value="101"&gt;Northern Mariana Islands&lt;/option&gt;&lt;option value="148"&gt;Norway&lt;/option&gt;&lt;option value="102"&gt;Oman&lt;/option&gt;&lt;option value="150"&gt;Pakistan&lt;/option&gt;&lt;option value="103"&gt;Palau&lt;/option&gt;&lt;option value="180"&gt;Palestine&lt;/option&gt;&lt;option value="104"&gt;Panama&lt;/option&gt;&lt;option value="105"&gt;Papua New Guinea&lt;/option&gt;&lt;option value="181"&gt;Paraguay&lt;/option&gt;&lt;option value="182"&gt;Peru&lt;/option&gt;&lt;option value="213"&gt;Philippines&lt;/option&gt;&lt;option value="106"&gt;Pitcairn&lt;/option&gt;&lt;option value="214"&gt;Poland&lt;/option&gt;&lt;option value="215"&gt;Portugal&lt;/option&gt;&lt;option value="216"&gt;Puerto Rico&lt;/option&gt;&lt;option value="217"&gt;Qatar&lt;/option&gt;&lt;option value="107"&gt;Reunion&lt;/option&gt;&lt;option value="218"&gt;Romania&lt;/option&gt;&lt;option value="219"&gt;Russian Federation&lt;/option&gt;&lt;option value="108"&gt;Rwanda&lt;/option&gt;&lt;option value="109"&gt;Saint Kitts and Nevis&lt;/option&gt;&lt;option value="110"&gt;Saint Lucia&lt;/option&gt;&lt;option value="111"&gt;Saint Vincent and the Grenadines&lt;/option&gt;&lt;option value="112"&gt;Samoa&lt;/option&gt;&lt;option value="113"&gt;San Marino&lt;/option&gt;&lt;option value="114"&gt;Sao Tome and Principe&lt;/option&gt;&lt;option value="220"&gt;Saudi Arabia&lt;/option&gt;&lt;option value="115"&gt;Senegal&lt;/option&gt;&lt;option value="238"&gt;Serbia&lt;/option&gt;&lt;option value="116"&gt;Seychelles&lt;/option&gt;&lt;option value="117"&gt;Sierra Leone&lt;/option&gt;&lt;option value="221"&gt;Singapore&lt;/option&gt;&lt;option value="222"&gt;Slovakia (Slovak Republic)&lt;/option&gt;&lt;option value="223"&gt;Slovenia&lt;/option&gt;&lt;option value="118"&gt;Solomon Islands&lt;/option&gt;&lt;option value="91"&gt;Somalia&lt;/option&gt;&lt;option value="224"&gt;South Africa&lt;/option&gt;&lt;option value="90"&gt;South Georgia &amp; South Sandwich Islands&lt;/option&gt;&lt;option value="89"&gt;South Sudan&lt;/option&gt;&lt;option value="225"&gt;Spain&lt;/option&gt;&lt;option value="74"&gt;Sri Lanka&lt;/option&gt;&lt;option value="62"&gt;St. Helena&lt;/option&gt;&lt;option value="63"&gt;St. Pierre and Miquelon&lt;/option&gt;&lt;option value="64"&gt;Sudan&lt;/option&gt;&lt;option value="65"&gt;Suriname&lt;/option&gt;&lt;option value="66"&gt;Svalbard and Jan Mayen Islands&lt;/option&gt;&lt;option value="67"&gt;Swaziland&lt;/option&gt;&lt;option value="226"&gt;Sweden&lt;/option&gt;&lt;option value="227"&gt;Switzerland&lt;/option&gt;&lt;option value="68"&gt;Syrian Arab Republic&lt;/option&gt;&lt;option value="228"&gt;Taiwan&lt;/option&gt;&lt;option value="69"&gt;Tajikistan&lt;/option&gt;&lt;option value="70"&gt;Tanzania&lt;/option&gt;&lt;option value="229"&gt;Thailand&lt;/option&gt;&lt;option value="71"&gt;Togo&lt;/option&gt;&lt;option value="72"&gt;Tokelau&lt;/option&gt;&lt;option value="73"&gt;Tonga&lt;/option&gt;&lt;option value="75"&gt;Trinidad and Tobago&lt;/option&gt;&lt;option value="88"&gt;Tunisia&lt;/option&gt;&lt;option value="230"&gt;Turkey&lt;/option&gt;&lt;option value="76"&gt;Turkmenistan&lt;/option&gt;&lt;option value="77"&gt;Turks and Caicos Islands&lt;/option&gt;&lt;option value="78"&gt;Tuvalu&lt;/option&gt;&lt;option value="79"&gt;Uganda&lt;/option&gt;&lt;option value="231"&gt;Ukraine&lt;/option&gt;&lt;option value="232"&gt;United Arab Emirates&lt;/option&gt;&lt;option value="233"&gt;United Kingdom&lt;/option&gt;&lt;option value="234"&gt;United States minor outlying islands&lt;/option&gt;&lt;option value="235"&gt;Uruguay&lt;/option&gt;&lt;option value="236"&gt;Uzbekistan&lt;/option&gt;&lt;option value="80"&gt;Vanuatu&lt;/option&gt;&lt;option value="81"&gt;Vatican City State (Holy See)&lt;/option&gt;&lt;option value="237"&gt;Venezuela&lt;/option&gt;&lt;option value="82"&gt;Viet Nam&lt;/option&gt;&lt;option value="83"&gt;Virgin Islands (British)&lt;/option&gt;&lt;option value="84"&gt;Virgin Islands (U.S.)&lt;/option&gt;&lt;option value="85"&gt;Wallis and Futuna Islands&lt;/option&gt;&lt;option value="86"&gt;Western Sahara&lt;/option&gt;&lt;option value="87"&gt;Yemen&lt;/option&gt;&lt;option value="120"&gt;Zambia&lt;/option&gt;&lt;option value="241"&gt;Zimbabwe&lt;/option&gt;&lt;/select&gt; &lt;span class="required"&gt;*&lt;/span&gt;<br/>
+               &lt;/div&gt;<br/>
+              &lt;/div&gt;<br/>
+              &lt;div class="estimate-shipping-row-item address-item"&gt;<br/>
+               &lt;select class="estimate-shipping-address-control" placeholder="State / province" id="StateProvinceId" name="StateProvinceId"&gt;&lt;option value="0"&gt;Other&lt;/option&gt;&lt;/select&gt;<br/>
+              &lt;/div&gt;<br/>
+              &lt;div class="estimate-shipping-row-item address-item"&gt;<br/>
+               &lt;div class="estimate-shipping-row"&gt;<br/>
+                &lt;input class="estimate-shipping-address-control" placeholder="Zip / postal code" type="text" id="ZipPostalCode" name="ZipPostalCode"&gt; &lt;span class="required"&gt;*&lt;/span&gt;<br/>
+               &lt;/div&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="choose-shipping-title"&gt;<br/>
+              &lt;strong&gt;Shipping Method&lt;/strong&gt;<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="shipping-options"&gt;<br/>
+              &lt;div class="shipping-options-header"&gt;<br/>
+               &lt;div class="estimate-shipping-row"&gt;<br/>
+                &lt;div class="estimate-shipping-row-item-radio"&gt;&lt;/div&gt;<br/>
+                &lt;div class="estimate-shipping-row-item shipping-item shipping-header-item"&gt;<br/>
+                 Name<br/>
+                &lt;/div&gt;<br/>
+                &lt;div class="estimate-shipping-row-item shipping-item shipping-header-item"&gt;<br/>
+                 Estimated Delivery<br/>
+                &lt;/div&gt;<br/>
+                &lt;div class="estimate-shipping-row-item shipping-item shipping-header-item"&gt;<br/>
+                 Price<br/>
+                &lt;/div&gt;<br/>
+               &lt;/div&gt;<br/>
+              &lt;/div&gt;<br/>
+              &lt;div class="shipping-options-body"&gt;<br/>
+               &lt;div class="no-shipping-options"&gt;<br/>
+                No shipping options<br/>
+               &lt;/div&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="apply-shipping-button-container"&gt;<br/>
+              &lt;button type="button" class="button-2 apply-shipping-button"&gt;Apply&lt;/button&gt;<br/>
+              &lt;div class="message-failure"&gt;&lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="checkout-attributes"&gt;<br/>
+            &lt;dl&gt;<br/>
+             &lt;dt id="checkout_attribute_label_1"&gt;<br/>
+              &lt;label class="text-prompt"&gt; Gift wrapping &lt;/label&gt; &lt;span class="required"&gt;*&lt;/span&gt;<br/>
+             &lt;/dt&gt;<br/>
+             &lt;dd id="checkout_attribute_input_1"&gt;<br/>
+              &lt;select name="checkout_attribute_1" id="checkout_attribute_1"&gt;&lt;option selected value="1"&gt;No&lt;/option&gt;&lt;option value="2"&gt;Yes [+$10.00]&lt;/option&gt;&lt;/select&gt;<br/>
+             &lt;/dd&gt;<br/>
+            &lt;/dl&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="selected-checkout-attributes"&gt;&lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="cart-footer"&gt;<br/>
+           &lt;div class="cart-collaterals"&gt;<br/>
+            &lt;div class="deals"&gt;<br/>
+             &lt;div class="coupon-box"&gt;<br/>
+              &lt;div class="title"&gt;<br/>
+               &lt;strong&gt;Discount Code&lt;/strong&gt;<br/>
+              &lt;/div&gt;<br/>
+              &lt;div class="hint"&gt;<br/>
+               Enter your coupon here<br/>
+              &lt;/div&gt;<br/>
+              &lt;div class="coupon-code"&gt;<br/>
+               &lt;input name="discountcouponcode" id="discountcouponcode" type="text" class="discount-coupon-code" aria-label="Enter discount coupon code"&gt; &lt;button type="submit" name="applydiscountcouponcode" id="applydiscountcouponcode" class="button-2 apply-discount-coupon-code-button"&gt;Apply coupon&lt;/button&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="giftcard-box"&gt;<br/>
+              &lt;div class="title"&gt;<br/>
+               &lt;strong&gt;Gift Cards&lt;/strong&gt;<br/>
+              &lt;/div&gt;<br/>
+              &lt;div class="hint"&gt;<br/>
+               Enter gift card code<br/>
+              &lt;/div&gt;<br/>
+              &lt;div class="coupon-code"&gt;<br/>
+               &lt;input name="giftcardcouponcode" id="giftcardcouponcode" type="text" class="gift-card-coupon-code" aria-label="Enter gift card code"&gt; &lt;button type="submit" name="applygiftcardcouponcode" id="applygiftcardcouponcode" class="button-2 apply-gift-card-coupon-code-button"&gt;Add gift card&lt;/button&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="totals"&gt;<br/>
+            &lt;div class="total-info"&gt;<br/>
+             &lt;table class="cart-total"&gt;<br/>
+              &lt;tbody&gt;<br/>
+               &lt;tr class="order-subtotal"&gt;<br/>
+                &lt;td class="cart-total-left"&gt;&lt;label&gt;Sub-Total:&lt;/label&gt;&lt;/td&gt;<br/>
+                &lt;td class="cart-total-right"&gt;&lt;span class="value-summary"&gt;$1,445.00&lt;/span&gt;&lt;/td&gt;<br/>
+               &lt;/tr&gt;<br/>
+               &lt;tr class="shipping-cost"&gt;<br/>
+                &lt;td class="cart-total-left"&gt;&lt;label&gt;Shipping:&lt;/label&gt;&lt;/td&gt;<br/>
+                &lt;td class="cart-total-right"&gt;&lt;span class="value-summary"&gt;$0.00&lt;/span&gt;&lt;/td&gt;<br/>
+               &lt;/tr&gt;<br/>
+               &lt;tr class="tax-value"&gt;<br/>
+                &lt;td class="cart-total-left"&gt;&lt;label&gt;Tax:&lt;/label&gt;&lt;/td&gt;<br/>
+                &lt;td class="cart-total-right"&gt;&lt;span class="value-summary"&gt;$0.00&lt;/span&gt;&lt;/td&gt;<br/>
+               &lt;/tr&gt;<br/>
+               &lt;tr class="order-total"&gt;<br/>
+                &lt;td class="cart-total-left"&gt;&lt;label&gt;Total:&lt;/label&gt;&lt;/td&gt;<br/>
+                &lt;td class="cart-total-right"&gt;&lt;span class="value-summary"&gt;&lt;strong&gt;$1,445.00&lt;/strong&gt;&lt;/span&gt;&lt;/td&gt;<br/>
+               &lt;/tr&gt;<br/>
+              &lt;/tbody&gt;<br/>
+             &lt;/table&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div id="terms-of-service-warning-box" title="Terms of service" style="display:none"&gt;<br/>
+             &lt;p&gt;Please accept the terms of service before the next step.&lt;/p&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div class="terms-of-service"&gt;<br/>
+             &lt;input id="termsofservice" type="checkbox" name="termsofservice"&gt; &lt;label for="termsofservice"&gt;I agree with the terms of service and I adhere to them unconditionally&lt;/label&gt; &lt;a class="read" id="read-terms"&gt;(read)&lt;/a&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div class="checkout-buttons"&gt;<br/>
+             &lt;button type="submit" id="checkout" name="checkout" value="checkout" class="button-1 checkout-button"&gt; Checkout &lt;/button&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div class="addon-buttons"&gt;&lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;input name="__RequestVerificationToken" type="hidden" value="CfDJ8JlLt0C9fJVDip1JcvIpkXSCBssKObU-9Id-Ta_VdVeufAtJzeqFsXscTnUm6JalNz_qZJ-7kxQfblyUl_DY26nbLPZdGosjYGPmfQCIfb3ZBCWb2nUXYa9FMitSRBQE9wOh0sSXYHlQrDxQbNAhu2w"&gt;<br/>
+         &lt;/form&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+   &lt;div class="footer"&gt;<br/>
+    &lt;div class="footer-upper"&gt;<br/>
+     &lt;div class="footer-block information"&gt;<br/>
+      &lt;div class="title"&gt;<br/>
+       &lt;strong&gt;Information&lt;/strong&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;ul class="list"&gt;<br/>
+       &lt;li&gt;&lt;a href="/sitemap"&gt;Sitemap&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/shipping-returns"&gt;Shipping &amp; returns&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/privacy-notice"&gt;Privacy notice&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/conditions-of-use"&gt;Conditions of Use&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/about-us"&gt;About us&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/contactus"&gt;Contact us&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="footer-block customer-service"&gt;<br/>
+      &lt;div class="title"&gt;<br/>
+       &lt;strong&gt;Customer service&lt;/strong&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;ul class="list"&gt;<br/>
+       &lt;li&gt;&lt;a href="/search"&gt;Search&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/news"&gt;News&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/blog"&gt;Blog&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/recentlyviewedproducts"&gt;Recently viewed products&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/compareproducts"&gt;Compare products list&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/newproducts"&gt;New products&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="footer-block my-account"&gt;<br/>
+      &lt;div class="title"&gt;<br/>
+       &lt;strong&gt;My account&lt;/strong&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;ul class="list"&gt;<br/>
+       &lt;li&gt;&lt;a href="/customer/info"&gt;My account&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/order/history"&gt;Orders&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/customer/addresses"&gt;Addresses&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/cart"&gt;Shopping cart&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/wishlist"&gt;Wishlist&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/vendor/apply"&gt;Apply for vendor account&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="footer-block follow-us"&gt;<br/>
+      &lt;div class="social"&gt;<br/>
+       &lt;div class="title"&gt;<br/>
+        &lt;strong&gt;Follow us&lt;/strong&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;ul class="networks"&gt;<br/>
+        &lt;li class="facebook"&gt;&lt;a href="http://www.facebook.com/nopCommerce" target="_blank" rel="noopener noreferrer"&gt;Facebook&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li class="twitter"&gt;&lt;a href="https://twitter.com/nopCommerce" target="_blank" rel="noopener noreferrer"&gt;Twitter&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li class="rss"&gt;&lt;a href="/news/rss/1"&gt;RSS&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li class="youtube"&gt;&lt;a href="http://www.youtube.com/user/nopCommerce" target="_blank" rel="noopener noreferrer"&gt;YouTube&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="newsletter"&gt;<br/>
+       &lt;div class="title"&gt;<br/>
+        &lt;strong&gt;Newsletter&lt;/strong&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="newsletter-subscribe" id="newsletter-subscribe-block"&gt;<br/>
+        &lt;div class="newsletter-email"&gt;<br/>
+         &lt;input id="newsletter-email" class="newsletter-subscribe-text" placeholder="Enter your email here..." aria-label="Sign up for our newsletter" type="email" name="NewsletterEmail"&gt; &lt;button type="button" id="newsletter-subscribe-button" class="button-1 newsletter-subscribe-button"&gt;Subscribe&lt;/button&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="newsletter-validation"&gt;<br/>
+         &lt;span id="subscribe-loading-progress" style="display:none" class="please-wait"&gt;Wait...&lt;/span&gt; &lt;span class="field-validation-valid" data-valmsg-for="NewsletterEmail" data-valmsg-replace="true"&gt;&lt;/span&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="newsletter-result" id="newsletter-result-block"&gt;&lt;/div&gt;<br/>
+       &lt;input name="__RequestVerificationToken" type="hidden" value="CfDJ8JlLt0C9fJVDip1JcvIpkXSCBssKObU-9Id-Ta_VdVeufAtJzeqFsXscTnUm6JalNz_qZJ-7kxQfblyUl_DY26nbLPZdGosjYGPmfQCIfb3ZBCWb2nUXYa9FMitSRBQE9wOh0sSXYHlQrDxQbNAhu2w"&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="footer-lower"&gt;<br/>
+     &lt;div class="footer-info"&gt;<br/>
+      &lt;span class="footer-disclaimer"&gt;Copyright © 2022 nopCommerce demo store. All rights reserved.&lt;/span&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="footer-powered-by"&gt;<br/>
+      Powered by &lt;a href="https://www.nopcommerce.com/" target="_blank" rel="nofollow"&gt;nopCommerce&lt;/a&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+  &lt;script src="/js/ShoppingCart.Footer.scripts.js?v=AGME9FdRD87b20KjelZMLcvu-aA"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/js/public.estimateshipping.popup.js?v=VMRuZ2TOMqGaLRJk19W9S33uf18"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/lib_npm/magnific-popup/jquery.magnific-popup.min.js?v=0g-vZHdoii3KuzNrPsjYrDMJfyM"&gt;&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){var n={},i={opener:"#open-estimate-shipping-popup",form:"#shopping-cart-form",contentEl:"#estimate-shipping-popup",countryEl:"#CountryId",stateProvinceEl:"#StateProvinceId",zipPostalCodeEl:"#ZipPostalCode",useCity:!1,cityEl:"#City",requestDelay:300,localizedData:{noShippingOptionsMessage:"No shipping options",countryErrorMessage:"Country is required",zipPostalCodeErrorMessage:"Zip / postal code is required",cityErrorMessage:"City is required"},urlFactory:function(n){var t=$.param({CountryId:n.countryId,StateProvinceId:n.stateProvinceId,ZipPostalCode:n.zipPostalCode,City:n.city});return"/cart/estimateshipping?"+t},handlers:{selectedOption:function(t){var i;t&&t.provider&&t.price&&n.validateAddress(t.address)&&(i=$.param({Name:t.provider,CountryId:t.address.countryId,StateProvinceId:t.address.stateProvinceId,ZipPostalCode:t.address.zipPostalCode}));$.ajax({cache:!1,url:"/shoppingcart/selectshippingoption"+(i?"?"+i:""),data:$("#shopping-cart-form").serialize(),type:"POST",beforeSend:function(){displayAjaxLoading(!0)},success:function(t){n.clearErrorMessage();t.success?(t.ordertotalssectionhtml&&$(".total-info").replaceWith(t.ordertotalssectionhtml),n.closePopup()):n.showErrorMessage(t.errors)},complete:function(){displayAjaxLoading(!1)}})}}};n=createEstimateShippingPopUp(i);n.init();let t=n.getShippingAddress();n.validateAddress(t)?n.getShippingOptions(t):n.selectShippingOption()})&lt;/script&gt;<br/>
+  &lt;script&gt;function checkoutAttributeChange(){$.ajax({cache:!1,url:"/shoppingcart/checkoutattributechange?isEditable=True",data:$("#shopping-cart-form").serialize(),type:"POST",success:function(n){var t;if(n.ordetotalssectionhtml&&$(".total-info").replaceWith(n.ordetotalssectionhtml),n.selectedcheckoutattributesssectionhtml&&$(".selected-checkout-attributes").replaceWith(n.selectedcheckoutattributesssectionhtml),n.enabledattributeids)for(t=0;t&lt;n.enabledattributeids.length;t++)$("#checkout_attribute_label_"+n.enabledattributeids[t]).show(),$("#checkout_attribute_input_"+n.enabledattributeids[t]).show();if(n.disabledattributeids)for(t=0;t&lt;n.disabledattributeids.length;t++)$("#checkout_attribute_label_"+n.disabledattributeids[t]).hide(),$("#checkout_attribute_input_"+n.disabledattributeids[t]).hide();$(document).trigger({type:"checkout_attributes_changed",changedData:n})}})}$(document).ready(function(){checkoutAttributeChange();$("#checkout_attribute_1").on("change",function(){checkoutAttributeChange()})})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$("#discountcouponcode").on("keydown",function(n){if(n.keyCode==13)return $("#applydiscountcouponcode").trigger("click"),!1})})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$("#giftcardcouponcode").on("keydown",function(n){if(n.keyCode==13)return $("#applygiftcardcouponcode").trigger("click"),!1})})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$("#read-terms").on("click",function(n){n.preventDefault();displayPopupContentFromUrl("/t-popup/conditionsofuse","Terms of service")})})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$("#checkout").on("click",function(){var n=!0;return $("#termsofservice").length&gt;0&&($("#termsofservice").is(":checked")?n=!0:($("#terms-of-service-warning-box").dialog(),n=!1)),n})})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$(".header").on("mouseenter","#topcartlink",function(){$("#flyout-cart").addClass("active")});$(".header").on("mouseleave","#topcartlink",function(){$("#flyout-cart").removeClass("active")});$(".header").on("mouseenter","#flyout-cart",function(){$("#flyout-cart").addClass("active")});$(".header").on("mouseleave","#flyout-cart",function(){$("#flyout-cart").removeClass("active")})})&lt;/script&gt;<br/>
+  &lt;script&gt;$("#small-search-box-form").on("submit",function(n){$("#small-searchterms").val()==""&&(alert("Please enter some search keyword"),$("#small-searchterms").focus(),n.preventDefault())})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){var n,t;$("#small-searchterms").autocomplete({delay:500,minLength:3,source:"/catalog/searchtermautocomplete",appendTo:".search-box",select:function(n,t){return $("#small-searchterms").val(t.item.label),setLocation(t.item.producturl),!1},open:function(){n&&(t=document.getElementById("small-searchterms").value,$(".ui-autocomplete").append('&lt;li class="ui-menu-item" role="presentation"&gt;&lt;a href="/search?q='+t+'"&gt;View all results...&lt;\/a&gt;&lt;\/li&gt;'))}}).data("ui-autocomplete")._renderItem=function(t,i){var r=i.label;return n=i.showlinktoresultsearch,r=htmlEncode(r),$("&lt;li&gt;&lt;\/li&gt;").data("item.autocomplete",i).append("&lt;a&gt;&lt;span&gt;"+r+"&lt;\/span&gt;&lt;\/a&gt;").appendTo(t)}})&lt;/script&gt;<br/>
+  &lt;script&gt;var localized_data={AjaxCartFailure:"Failed to add the product. Please refresh the page and try one more time."};AjaxCart.init(!1,".header-links .cart-qty",".header-links .wishlist-qty","#flyout-cart",localized_data)&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$(".menu-toggle").on("click",function(){$(this).siblings(".top-menu.mobile").slideToggle("slow")});$(".top-menu.mobile .sublist-toggle").on("click",function(){$(this).siblings(".sublist").slideToggle("slow")})})&lt;/script&gt;<br/>
+  &lt;script&gt;function newsletter_subscribe(n){var i=$("#subscribe-loading-progress"),t;i.show();t={subscribe:n,email:$("#newsletter-email").val()};addAntiForgeryToken(t);$.ajax({cache:!1,type:"POST",url:"/subscribenewsletter",data:t,success:function(n){$("#newsletter-result-block").html(n.Result);n.Success?($("#newsletter-subscribe-block").hide(),$("#newsletter-result-block").show()):$("#newsletter-result-block").fadeIn("slow").delay(2e3).fadeOut("slow")},error:function(){alert("Failed to subscribe.")},complete:function(){i.hide()}})}$(document).ready(function(){$("#newsletter-subscribe-button").on("click",function(){newsletter_subscribe("true")});$("#newsletter-email").on("keydown",function(n){if(n.keyCode==13)return $("#newsletter-subscribe-button").trigger("click"),!1})})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$(".footer-block .title").on("click",function(){var n=window,t="inner",i;"innerWidth"in window||(t="client",n=document.documentElement||document.body);i={width:n[t+"Width"],height:n[t+"Height"]};i.width&lt;769&&$(this).siblings(".list").slideToggle("slow")})})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$(".block .title").on("click",function(){var n=window,t="inner",i;"innerWidth"in window||(t="client",n=document.documentElement||document.body);i={width:n[t+"Width"],height:n[t+"Height"]};i.width&lt;1001&&$(this).siblings(".listbox").slideToggle("slow")})})&lt;/script&gt;<br/>
+  &lt;div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"&gt;&lt;/div&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

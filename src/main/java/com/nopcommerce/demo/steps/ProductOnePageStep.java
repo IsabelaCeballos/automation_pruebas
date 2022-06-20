@@ -40,8 +40,8 @@ public class ProductOnePageStep {
     public void clickLnkShoppingCart(){
         productOnePageObject.clickLnkShoppingCart();
     }
-    @Step
+    /*@Step
     public void localStorage(){
         productOnePageObject.local();
-    }
+    }*/
 }

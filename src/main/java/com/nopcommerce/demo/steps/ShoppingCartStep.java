@@ -8,9 +8,16 @@ import org.openqa.selenium.By;
 public class ShoppingCartStep extends PageObject {
   ShoppingCartPageObject shoppingCartPageObject = new ShoppingCartPageObject();
   @Step
-    public void getDetails(){
-      shoppingCartPageObject.getDetails();
-  }
-
+  public void verificationRAM(){ shoppingCartPageObject.verificationRAM();}
+  @Step
+  public  void verificationHDD(){ shoppingCartPageObject.verificationHDD();}
+  @Step
+  public  void verificationSoftwareOne(){ shoppingCartPageObject.verificationSoftwareOne();}
+  @Step
+  public  void verificationSoftwareTwo(){ shoppingCartPageObject.verificationSoftwareTwo();}
+  @Step
+  public  void verificationPrice(){ shoppingCartPageObject.verificationPrice();}
+  /*@Step
+  public  void verificationTotal(){ shoppingCartPageObject.verificationTotal();}*/
 
 }

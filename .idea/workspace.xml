@@ -5,21 +5,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="44abde59-26c8-487d-9c21-f3631cd02527" name="Changes" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/build.gradle" beforeDir="false" afterPath="$PROJECT_DIR$/build.gradle" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/serenity.properties" beforeDir="false" afterPath="$PROJECT_DIR$/serenity.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/DesktopPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/DesktopPageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/HomepagePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/HomepagePageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/ProductOnePageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/ProductOnePageObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/ShoppingCartPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/ShoppingCartPageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/DesktopStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/DesktopStep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/HomepageStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/HomepageStep.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/ProductOnePageStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/ProductOnePageStep.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/ShoppingCartStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/ShoppingCartStep.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/utils/ScrollDown.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/utils/ScrollDown.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/java/com/nopcommerce/demo/runners/PurchasingProcessRunner.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nopcommerce/demo/runners/PurchasingProcessRunner.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/nopcommerce/demo/stepdefinitions/PurchasingProcessStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nopcommerce/demo/stepdefinitions/PurchasingProcessStepDefinition.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/test/resources/com.nopcommerce.demo/com.nopcommerce.demo.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/com.nopcommerce.demo/com.nopcommerce.demo.feature" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/browser-chrome.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/browser-chrome.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0.json" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/target/site/serenity/e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0_screenshots.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0_screenshots.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -30,6 +26,26 @@
     <projectState path="$PROJECT_DIR$">
       <ProjectState />
     </projectState>
+  </component>
+  <component name="ExternalProjectsManager">
+    <system id="GRADLE">
+      <state>
+        <task path="$PROJECT_DIR$">
+          <activation />
+        </task>
+        <projects_view>
+          <tree_state>
+            <expand>
+              <path>
+                <item name="" type="6a2764b6:ExternalProjectsStructure$RootNode" />
+                <item name="automation_pruebas" type="f1a62948:ProjectNode" />
+              </path>
+            </expand>
+            <select />
+          </tree_state>
+        </projects_view>
+      </state>
+    </system>
   </component>
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
@@ -50,17 +66,17 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
-    "last_opened_file_path": "C:/Users/Isa/IdeaProjects/automation_pruebas",
-    "project.structure.last.edited": "Modules",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.2"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;SHARE_PROJECT_CONFIGURATION_FILES&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Isa/IdeaProjects/automation_pruebas&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Modules&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Isa\IdeaProjects\automation_pruebas" />
