@@ -1,0 +1,486 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html lang="en" dir="ltr" class="html-home-page"&gt;<br/>
+ &lt;head&gt;<br/>
+  &lt;title&gt;nopCommerce demo store&lt;/title&gt;<br/>
+  &lt;meta charset="UTF-8"&gt;<br/>
+  &lt;meta name="description" content="nopCommerce is the open-source eCommerce solution. nopCommerce is available for free. It has everything you need to get started in selling physical and digital goods over the internet."&gt;<br/>
+  &lt;meta name="keywords" content="open source ecommerce,open-source ecommerce,C# shopping cart,C#,asp.net e-commerce storefront,asp.net web store,.net ecommerce,C# shopping cart,shopping cart,e-commerce"&gt;<br/>
+  &lt;meta name="generator" content="nopCommerce"&gt;<br/>
+  &lt;meta name="viewport" content="width=device-width, initial-scale=1"&gt;<br/>
+  &lt;link rel="stylesheet" href="/css/Homepage.Head.styles.css?v=sJef6bO9lRHm1tuNhzK5ikdHRZs"&gt;<br/>
+ &lt;/head&gt;<br/>
+ &lt;body&gt;<br/>
+  &lt;div class="ajax-loading-block-window" style="display:none"&gt;&lt;/div&gt;<br/>
+  &lt;div id="dialog-notifications-success" title="Notification" style="display:none"&gt;&lt;/div&gt;<br/>
+  &lt;div id="dialog-notifications-error" title="Error" style="display:none"&gt;&lt;/div&gt;<br/>
+  &lt;div id="dialog-notifications-warning" title="Warning" style="display:none"&gt;&lt;/div&gt;<br/>
+  &lt;div id="bar-notification" class="bar-notification-container" data-close="Close"&gt;&lt;/div&gt;&lt;!--[if lte IE 8]&gt;&lt;div style=clear:both;height:59px;text-align:center;position:relative&gt;&lt;a href=http://www.microsoft.com/windows/internet-explorer/default.aspx target=_blank&gt; &lt;img src=/Themes/DefaultClean/Content/images/ie_warning.jpg height=42 width=820 alt="You are using an outdated browser. For a faster, safer browsing experience, upgrade for free today."&gt; &lt;/a&gt;&lt;/div&gt;&lt;![endif]--&gt;<br/>
+  &lt;div class="master-wrapper-page"&gt;<br/>
+   &lt;div class="header"&gt;<br/>
+    &lt;div class="header-upper"&gt;<br/>
+     &lt;div class="header-selectors-wrapper"&gt;<br/>
+      &lt;div class="currency-selector"&gt;<br/>
+       &lt;select id="customerCurrency" name="customerCurrency" onchange="setLocation(this.value)" aria-label="Currency selector"&gt;&lt;option selected value="https://demo.nopcommerce.com/changecurrency/1?returnUrl=%2F"&gt;US Dollar&lt;/option&gt;&lt;option value="https://demo.nopcommerce.com/changecurrency/6?returnUrl=%2F"&gt;Euro&lt;/option&gt;&lt;/select&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="header-links-wrapper"&gt;<br/>
+      &lt;div class="header-links"&gt;<br/>
+       &lt;ul&gt;<br/>
+        &lt;li&gt;&lt;a href="/register?returnUrl=%2F" class="ico-register"&gt;Register&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="/login?returnUrl=%2F" class="ico-login"&gt;Log in&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li&gt;&lt;a href="/wishlist" class="ico-wishlist"&gt; &lt;span class="wishlist-label"&gt;Wishlist&lt;/span&gt; &lt;span class="wishlist-qty"&gt;(0)&lt;/span&gt; &lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li id="topcartlink"&gt;&lt;a href="/cart" class="ico-cart"&gt; &lt;span class="cart-label"&gt;Shopping cart&lt;/span&gt; &lt;span class="cart-qty"&gt;(0)&lt;/span&gt; &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div id="flyout-cart" class="flyout-cart"&gt;<br/>
+       &lt;div class="mini-shopping-cart"&gt;<br/>
+        &lt;div class="count"&gt;<br/>
+         You have no items in your shopping cart.<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="header-lower"&gt;<br/>
+     &lt;div class="header-logo"&gt;<br/>
+      &lt;a href="/"&gt; &lt;img alt="nopCommerce demo store" src="https://demo.nopcommerce.com/Themes/DefaultClean/Content/images/logo.png"&gt; &lt;/a&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="search-box store-search-box"&gt;<br/>
+      &lt;form method="get" id="small-search-box-form" action="/search"&gt;<br/>
+       &lt;input type="text" class="search-box-text ui-autocomplete-input" id="small-searchterms" autocomplete="off" name="q" placeholder="Search store" aria-label="Search store"&gt; &lt;button type="submit" class="button-1 search-box-button"&gt;Search&lt;/button&gt;<br/>
+      &lt;/form&gt;<br/>
+      &lt;ul id="ui-id-1" tabindex="0" class="ui-menu ui-widget ui-widget-content ui-autocomplete ui-front" style="display: none;"&gt;&lt;/ul&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+   &lt;div class="header-menu"&gt;<br/>
+    &lt;ul class="top-menu notmobile"&gt;<br/>
+     &lt;li&gt;&lt;a href="/computers"&gt;Computers &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/desktops"&gt;Desktops &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/notebooks"&gt;Notebooks &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/software"&gt;Software &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/electronics"&gt;Electronics &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/camera-photo"&gt;Camera &amp; photo &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/cell-phones"&gt;Cell phones &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/others"&gt;Others &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/apparel"&gt;Apparel &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/shoes"&gt;Shoes &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/clothing"&gt;Clothing &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/accessories"&gt;Accessories &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/digital-downloads"&gt;Digital downloads &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/books"&gt;Books &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/jewelry"&gt;Jewelry &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/gift-cards"&gt;Gift Cards &lt;/a&gt;&lt;/li&gt;<br/>
+    &lt;/ul&gt;<br/>
+    &lt;div class="menu-toggle"&gt;<br/>
+     Categories<br/>
+    &lt;/div&gt;<br/>
+    &lt;ul class="top-menu mobile"&gt;<br/>
+     &lt;li&gt;&lt;a href="/computers"&gt;Computers &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/desktops"&gt;Desktops &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/notebooks"&gt;Notebooks &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/software"&gt;Software &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/electronics"&gt;Electronics &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/camera-photo"&gt;Camera &amp; photo &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/cell-phones"&gt;Cell phones &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/others"&gt;Others &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/apparel"&gt;Apparel &lt;/a&gt;<br/>
+      &lt;div class="sublist-toggle"&gt;&lt;/div&gt;<br/>
+      &lt;ul class="sublist first-level"&gt;<br/>
+       &lt;li&gt;&lt;a href="/shoes"&gt;Shoes &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/clothing"&gt;Clothing &lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/accessories"&gt;Accessories &lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/digital-downloads"&gt;Digital downloads &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/books"&gt;Books &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/jewelry"&gt;Jewelry &lt;/a&gt;&lt;/li&gt;<br/>
+     &lt;li&gt;&lt;a href="/gift-cards"&gt;Gift Cards &lt;/a&gt;&lt;/li&gt;<br/>
+    &lt;/ul&gt;<br/>
+   &lt;/div&gt;<br/>
+   &lt;div class="master-wrapper-content"&gt;<br/>
+    &lt;div class="master-column-wrapper"&gt;<br/>
+     &lt;div class="center-1"&gt;<br/>
+      &lt;div class="page home-page"&gt;<br/>
+       &lt;div class="page-body"&gt;<br/>
+        &lt;div class="slider-wrapper theme-custom"&gt;<br/>
+         &lt;div id="nivo-slider" class="nivoSlider"&gt;<br/>
+          &lt;a href="http://demo.nopcommerce.com/" aria-label="" class="nivo-imageLink" style="display: block;"&gt; &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" data-thumb="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" data-transition="" alt="" style="width: 980px; visibility: hidden; display: inline;"&gt; &lt;/a&gt; &lt;a href="http://demo.nopcommerce.com/" aria-label="" class="nivo-imageLink" style="display: block;"&gt; &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000080_banner_2.jpg" data-thumb="https://demo.nopcommerce.com/images/thumbs/0000080_banner_2.jpg" data-transition="" alt="" style="width: 980px; visibility: hidden; display: inline;"&gt; &lt;/a&gt;<br/>
+          &lt;img class="nivo-main-image" src="https://demo.nopcommerce.com/images/thumbs/0000080_banner_2.jpg" style="height: 408.328px;"&gt;<br/>
+          &lt;div class="nivo-caption"&gt;&lt;/div&gt;<br/>
+          &lt;div class="nivo-directionNav"&gt;<br/>
+           &lt;a class="nivo-prevNav"&gt;Prev&lt;/a&gt;&lt;a class="nivo-nextNav"&gt;Next&lt;/a&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="0" style="left: 0px; width: 65px; height: 408.312px; opacity: 1; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-0px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="1" style="left: 65px; width: 65px; height: 408.312px; opacity: 1; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-65px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="2" style="left: 130px; width: 65px; height: 408.312px; opacity: 1; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-130px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="3" style="left: 195px; width: 65px; height: 408.312px; opacity: 1; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-195px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="4" style="left: 260px; width: 65px; height: 408.312px; opacity: 1; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-260px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="5" style="left: 325px; width: 65px; height: 408.312px; opacity: 1; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-325px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="6" style="left: 390px; width: 65px; height: 408.312px; opacity: 1; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-390px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="7" style="left: 455px; width: 65px; height: 408.312px; opacity: 1; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-455px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="8" style="left: 520px; width: 65px; height: 408.312px; opacity: 1; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-520px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="9" style="left: 585px; width: 65px; height: 408.312px; opacity: 1; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-585px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="10" style="left: 650px; width: 65px; height: 408.312px; opacity: 1; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-650px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="11" style="left: 715px; width: 65px; height: 408.312px; opacity: 0.996057; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-715px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="12" style="left: 780px; width: 65px; height: 408.312px; opacity: 0.952414; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-780px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="13" style="left: 845px; width: 65px; height: 408.312px; opacity: 0.864484; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-845px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="nivo-slice" name="14" style="left: 910px; width: 70px; height: 408.312px; opacity: 0.738119; overflow: hidden; top: 0px;"&gt;<br/>
+           &lt;img src="https://demo.nopcommerce.com/images/thumbs/0000079_banner_1.jpg" style="position:absolute; width:980px; height:auto; display:block !important; top:0; left:-910px;"&gt;<br/>
+          &lt;/div&gt;<br/>
+         &lt;/div&gt;<br/>
+         &lt;div class="nivo-controlNav"&gt;<br/>
+          &lt;a class="nivo-control active" rel="0"&gt;1&lt;/a&gt;&lt;a class="nivo-control" rel="1"&gt;2&lt;/a&gt;<br/>
+         &lt;/div&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="topic-block"&gt;<br/>
+         &lt;div class="topic-block-title"&gt;<br/>
+          &lt;h2&gt;Welcome to our store&lt;/h2&gt;<br/>
+         &lt;/div&gt;<br/>
+         &lt;div class="topic-block-body"&gt;<br/>
+          &lt;p&gt;Online shopping is the process consumers go through to purchase products or services over the Internet. You can edit this in the admin site.&lt;/p&gt;<br/>
+          &lt;p&gt;If you have questions, see the &lt;a href="http://docs.nopcommerce.com/"&gt;Documentation&lt;/a&gt;, or post in the &lt;a href="https://www.nopcommerce.com/boards/"&gt;Forums&lt;/a&gt; at &lt;a href="https://www.nopcommerce.com"&gt;nopCommerce.com&lt;/a&gt;&lt;/p&gt;<br/>
+         &lt;/div&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="category-grid home-page-category-grid"&gt;<br/>
+         &lt;div class="item-grid"&gt;<br/>
+          &lt;div class="item-box"&gt;<br/>
+           &lt;div class="category-item"&gt;<br/>
+            &lt;h2 class="title"&gt;&lt;a href="/electronics" title="Show products in category Electronics"&gt; Electronics &lt;/a&gt;&lt;/h2&gt;<br/>
+            &lt;div class="picture"&gt;<br/>
+             &lt;a href="/electronics" title="Show products in category Electronics"&gt; &lt;img alt="Picture for category Electronics" src="https://demo.nopcommerce.com/images/thumbs/0000005_electronics_450.jpeg" title="Show products in category Electronics"&gt; &lt;/a&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="item-box"&gt;<br/>
+           &lt;div class="category-item"&gt;<br/>
+            &lt;h2 class="title"&gt;&lt;a href="/apparel" title="Show products in category Apparel"&gt; Apparel &lt;/a&gt;&lt;/h2&gt;<br/>
+            &lt;div class="picture"&gt;<br/>
+             &lt;a href="/apparel" title="Show products in category Apparel"&gt; &lt;img alt="Picture for category Apparel" src="https://demo.nopcommerce.com/images/thumbs/0000009_apparel_450.jpeg" title="Show products in category Apparel"&gt; &lt;/a&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="item-box"&gt;<br/>
+           &lt;div class="category-item"&gt;<br/>
+            &lt;h2 class="title"&gt;&lt;a href="/digital-downloads" title="Show products in category Digital downloads"&gt; Digital downloads &lt;/a&gt;&lt;/h2&gt;<br/>
+            &lt;div class="picture"&gt;<br/>
+             &lt;a href="/digital-downloads" title="Show products in category Digital downloads"&gt; &lt;img alt="Picture for category Digital downloads" src="https://demo.nopcommerce.com/images/thumbs/0000013_digital-downloads_450.jpeg" title="Show products in category Digital downloads"&gt; &lt;/a&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+         &lt;/div&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="product-grid home-page-product-grid"&gt;<br/>
+         &lt;div class="title"&gt;<br/>
+          &lt;strong&gt;Featured products&lt;/strong&gt;<br/>
+         &lt;/div&gt;<br/>
+         &lt;div class="item-grid"&gt;<br/>
+          &lt;div class="item-box"&gt;<br/>
+           &lt;div class="product-item" data-productid="1"&gt;<br/>
+            &lt;div class="picture"&gt;<br/>
+             &lt;a href="/build-your-own-computer" title="Show details for Build your own computer"&gt; &lt;img alt="Picture of Build your own computer" src="https://demo.nopcommerce.com/images/thumbs/0000020_build-your-own-computer_415.jpeg" title="Show details for Build your own computer"&gt; &lt;/a&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div class="details"&gt;<br/>
+             &lt;h2 class="product-title"&gt;&lt;a href="/build-your-own-computer"&gt;Build your own computer&lt;/a&gt;&lt;/h2&gt;<br/>
+             &lt;div class="product-rating-box" title="1 review(s)"&gt;<br/>
+              &lt;div class="rating"&gt;<br/>
+               &lt;div style="width:100%"&gt;&lt;/div&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="description"&gt;<br/>
+              Build it<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="add-info"&gt;<br/>
+              &lt;div class="prices"&gt;<br/>
+               &lt;span class="price actual-price"&gt;$1,200.00&lt;/span&gt;<br/>
+              &lt;/div&gt;<br/>
+              &lt;div class="buttons"&gt;<br/>
+               &lt;button type="button" class="button-2 product-box-add-to-cart-button" onclick="return AjaxCart.addproducttocart_catalog(&quot;/addproducttocart/catalog/1/1/1&quot;),!1"&gt;Add to cart&lt;/button&gt; &lt;button type="button" class="button-2 add-to-compare-list-button" title="Add to compare list" onclick="return AjaxCart.addproducttocomparelist(&quot;/compareproducts/add/1&quot;),!1"&gt;Add to compare list&lt;/button&gt; &lt;button type="button" class="button-2 add-to-wishlist-button" title="Add to wishlist" onclick="return AjaxCart.addproducttocart_catalog(&quot;/addproducttocart/catalog/1/2/1&quot;),!1"&gt;Add to wishlist&lt;/button&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="item-box"&gt;<br/>
+           &lt;div class="product-item" data-productid="4"&gt;<br/>
+            &lt;div class="picture"&gt;<br/>
+             &lt;a href="/apple-macbook-pro-13-inch" title="Show details for Apple MacBook Pro 13-inch"&gt; &lt;img alt="Picture of Apple MacBook Pro 13-inch" src="https://demo.nopcommerce.com/images/thumbs/0000024_apple-macbook-pro-13-inch_415.jpeg" title="Show details for Apple MacBook Pro 13-inch"&gt; &lt;/a&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div class="details"&gt;<br/>
+             &lt;h2 class="product-title"&gt;&lt;a href="/apple-macbook-pro-13-inch"&gt;Apple MacBook Pro 13-inch&lt;/a&gt;&lt;/h2&gt;<br/>
+             &lt;div class="product-rating-box" title="1 review(s)"&gt;<br/>
+              &lt;div class="rating"&gt;<br/>
+               &lt;div style="width:100%"&gt;&lt;/div&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="description"&gt;<br/>
+              A groundbreaking Retina display. A new force-sensing trackpad. All-flash architecture. Powerful dual-core and quad-core Intel processors. Together, these features take the notebook to a new level of performance. And they will do the same for you in everything you create.<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="add-info"&gt;<br/>
+              &lt;div class="prices"&gt;<br/>
+               &lt;span class="price actual-price"&gt;$1,800.00&lt;/span&gt;<br/>
+              &lt;/div&gt;<br/>
+              &lt;div class="buttons"&gt;<br/>
+               &lt;button type="button" class="button-2 product-box-add-to-cart-button" onclick="return AjaxCart.addproducttocart_catalog(&quot;/addproducttocart/catalog/4/1/1&quot;),!1"&gt;Add to cart&lt;/button&gt; &lt;button type="button" class="button-2 add-to-compare-list-button" title="Add to compare list" onclick="return AjaxCart.addproducttocomparelist(&quot;/compareproducts/add/4&quot;),!1"&gt;Add to compare list&lt;/button&gt; &lt;button type="button" class="button-2 add-to-wishlist-button" title="Add to wishlist" onclick="return AjaxCart.addproducttocart_catalog(&quot;/addproducttocart/catalog/4/2/1&quot;),!1"&gt;Add to wishlist&lt;/button&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="item-box"&gt;<br/>
+           &lt;div class="product-item" data-productid="18"&gt;<br/>
+            &lt;div class="picture"&gt;<br/>
+             &lt;a href="/htc-one-m8-android-l-50-lollipop" title="Show details for HTC One M8 Android L 5.0 Lollipop"&gt; &lt;img alt="Picture of HTC One M8 Android L 5.0 Lollipop" src="https://demo.nopcommerce.com/images/thumbs/0000041_htc-one-m8-android-l-50-lollipop_415.jpeg" title="Show details for HTC One M8 Android L 5.0 Lollipop"&gt; &lt;/a&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div class="details"&gt;<br/>
+             &lt;h2 class="product-title"&gt;&lt;a href="/htc-one-m8-android-l-50-lollipop"&gt;HTC One M8 Android L 5.0 Lollipop&lt;/a&gt;&lt;/h2&gt;<br/>
+             &lt;div class="product-rating-box" title="1 review(s)"&gt;<br/>
+              &lt;div class="rating"&gt;<br/>
+               &lt;div style="width:100%"&gt;&lt;/div&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="description"&gt;<br/>
+              HTC - One (M8) 4G LTE Cell Phone with 32GB Memory - Gunmetal (Sprint)<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="add-info"&gt;<br/>
+              &lt;div class="prices"&gt;<br/>
+               &lt;span class="price actual-price"&gt;$245.00&lt;/span&gt;<br/>
+              &lt;/div&gt;<br/>
+              &lt;div class="buttons"&gt;<br/>
+               &lt;button type="button" class="button-2 product-box-add-to-cart-button" onclick="return AjaxCart.addproducttocart_catalog(&quot;/addproducttocart/catalog/18/1/1&quot;),!1"&gt;Add to cart&lt;/button&gt; &lt;button type="button" class="button-2 add-to-compare-list-button" title="Add to compare list" onclick="return AjaxCart.addproducttocomparelist(&quot;/compareproducts/add/18&quot;),!1"&gt;Add to compare list&lt;/button&gt; &lt;button type="button" class="button-2 add-to-wishlist-button" title="Add to wishlist" onclick="return AjaxCart.addproducttocart_catalog(&quot;/addproducttocart/catalog/18/2/1&quot;),!1"&gt;Add to wishlist&lt;/button&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="item-box"&gt;<br/>
+           &lt;div class="product-item" data-productid="43"&gt;<br/>
+            &lt;div class="picture"&gt;<br/>
+             &lt;a href="/25-virtual-gift-card" title="Show details for $25 Virtual Gift Card"&gt; &lt;img alt="Picture of $25 Virtual Gift Card" src="https://demo.nopcommerce.com/images/thumbs/0000074_25-virtual-gift-card_415.jpeg" title="Show details for $25 Virtual Gift Card"&gt; &lt;/a&gt;<br/>
+            &lt;/div&gt;<br/>
+            &lt;div class="details"&gt;<br/>
+             &lt;h2 class="product-title"&gt;&lt;a href="/25-virtual-gift-card"&gt;$25 Virtual Gift Card&lt;/a&gt;&lt;/h2&gt;<br/>
+             &lt;div class="product-rating-box" title="1 review(s)"&gt;<br/>
+              &lt;div class="rating"&gt;<br/>
+               &lt;div style="width:100%"&gt;&lt;/div&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="description"&gt;<br/>
+              $25 Gift Card. Gift Cards must be redeemed through our site Web site toward the purchase of eligible products.<br/>
+             &lt;/div&gt;<br/>
+             &lt;div class="add-info"&gt;<br/>
+              &lt;div class="prices"&gt;<br/>
+               &lt;span class="price actual-price"&gt;$25.00&lt;/span&gt;<br/>
+              &lt;/div&gt;<br/>
+              &lt;div class="buttons"&gt;<br/>
+               &lt;button type="button" class="button-2 product-box-add-to-cart-button" onclick="return AjaxCart.addproducttocart_catalog(&quot;/addproducttocart/catalog/43/1/1&quot;),!1"&gt;Add to cart&lt;/button&gt; &lt;button type="button" class="button-2 add-to-compare-list-button" title="Add to compare list" onclick="return AjaxCart.addproducttocomparelist(&quot;/compareproducts/add/43&quot;),!1"&gt;Add to compare list&lt;/button&gt; &lt;button type="button" class="button-2 add-to-wishlist-button" title="Add to wishlist" onclick="return AjaxCart.addproducttocart_catalog(&quot;/addproducttocart/catalog/43/2/1&quot;),!1"&gt;Add to wishlist&lt;/button&gt;<br/>
+              &lt;/div&gt;<br/>
+             &lt;/div&gt;<br/>
+            &lt;/div&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+         &lt;/div&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="news-list-homepage"&gt;<br/>
+         &lt;div class="title"&gt;<br/>
+          &lt;strong&gt;News&lt;/strong&gt;<br/>
+         &lt;/div&gt;<br/>
+         &lt;div class="news-items"&gt;<br/>
+          &lt;div class="news-item"&gt;<br/>
+           &lt;div class="news-head"&gt;<br/>
+            &lt;a class="news-title" href="/new-online-store-is-open"&gt;New online store is open!&lt;/a&gt; &lt;span class="news-date"&gt;-Thursday, July 26, 2018&lt;/span&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="news-body"&gt;<br/>
+            The new nopCommerce store is open now! We are very excited to offer our new range of products. We will be constantly adding to our range so please register on our site.<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="buttons"&gt;<br/>
+            &lt;a href="/new-online-store-is-open" class="read-more"&gt;details&lt;/a&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="news-item"&gt;<br/>
+           &lt;div class="news-head"&gt;<br/>
+            &lt;a class="news-title" href="/nopcommerce-new-release"&gt;nopCommerce new release!&lt;/a&gt; &lt;span class="news-date"&gt;-Thursday, July 26, 2018&lt;/span&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="news-body"&gt;<br/>
+            nopCommerce includes everything you need to begin your e-commerce online store. We have thought of everything and it's all included! nopCommerce is a fully customizable shopping cart<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="buttons"&gt;<br/>
+            &lt;a href="/nopcommerce-new-release" class="read-more"&gt;details&lt;/a&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="news-item"&gt;<br/>
+           &lt;div class="news-head"&gt;<br/>
+            &lt;a class="news-title" href="/about-nopcommerce"&gt;About nopCommerce&lt;/a&gt; &lt;span class="news-date"&gt;-Thursday, July 26, 2018&lt;/span&gt;<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="news-body"&gt;<br/>
+            It's stable and highly usable. From downloads to documentation, www.nopCommerce.com offers a comprehensive base of information, resources, and support to the nopCommerce community.<br/>
+           &lt;/div&gt;<br/>
+           &lt;div class="buttons"&gt;<br/>
+            &lt;a href="/about-nopcommerce" class="read-more"&gt;details&lt;/a&gt;<br/>
+           &lt;/div&gt;<br/>
+          &lt;/div&gt;<br/>
+         &lt;/div&gt;<br/>
+         &lt;div class="view-all"&gt;<br/>
+          &lt;a href="/news"&gt;View News Archive&lt;/a&gt;<br/>
+         &lt;/div&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="home-page-polls"&gt;<br/>
+         &lt;div class="title"&gt;<br/>
+          &lt;strong&gt;Community poll&lt;/strong&gt;<br/>
+         &lt;/div&gt;<br/>
+         &lt;div class="poll" id="poll-block-1"&gt;<br/>
+          &lt;strong class="poll-display-text"&gt;Do you like nopCommerce?&lt;/strong&gt;<br/>
+          &lt;ul class="poll-options"&gt;<br/>
+           &lt;li class="answer"&gt;&lt;input id="pollanswers-1" type="radio" name="pollanswers-1" value="1"&gt; &lt;label for="pollanswers-1"&gt;Excellent&lt;/label&gt;&lt;/li&gt;<br/>
+           &lt;li class="answer"&gt;&lt;input id="pollanswers-2" type="radio" name="pollanswers-1" value="2"&gt; &lt;label for="pollanswers-2"&gt;Good&lt;/label&gt;&lt;/li&gt;<br/>
+           &lt;li class="answer"&gt;&lt;input id="pollanswers-3" type="radio" name="pollanswers-1" value="3"&gt; &lt;label for="pollanswers-3"&gt;Poor&lt;/label&gt;&lt;/li&gt;<br/>
+           &lt;li class="answer"&gt;&lt;input id="pollanswers-4" type="radio" name="pollanswers-1" value="4"&gt; &lt;label for="pollanswers-4"&gt;Very bad&lt;/label&gt;&lt;/li&gt;<br/>
+          &lt;/ul&gt;<br/>
+          &lt;div class="buttons"&gt;<br/>
+           &lt;button type="button" id="vote-poll-1" class="button-2 vote-poll-button"&gt;Vote&lt;/button&gt; &lt;span id="poll-voting-progress-1" style="display:none" class="please-wait"&gt;Wait...&lt;/span&gt;<br/>
+          &lt;/div&gt;<br/>
+          &lt;div class="poll-vote-error" id="block-poll-vote-error-1" style="display:none"&gt;&lt;/div&gt;<br/>
+          &lt;input name="__RequestVerificationToken" type="hidden" value="CfDJ8JlLt0C9fJVDip1JcvIpkXQafHiCJXhGcJBUv5Kk3MYu_ctS2C-N8sJYJFQmc3Tkd6tLTjOOfTiY6kWqMTaYFdkDXBkLYc7NMW6iTeMGeBocIu18P4SPY28cYxoMMLuZkrH0IfTRFpbArSJs5khOvWk"&gt;<br/>
+         &lt;/div&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+   &lt;div class="footer"&gt;<br/>
+    &lt;div class="footer-upper"&gt;<br/>
+     &lt;div class="footer-block information"&gt;<br/>
+      &lt;div class="title"&gt;<br/>
+       &lt;strong&gt;Information&lt;/strong&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;ul class="list"&gt;<br/>
+       &lt;li&gt;&lt;a href="/sitemap"&gt;Sitemap&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/shipping-returns"&gt;Shipping &amp; returns&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/privacy-notice"&gt;Privacy notice&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/conditions-of-use"&gt;Conditions of Use&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/about-us"&gt;About us&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/contactus"&gt;Contact us&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="footer-block customer-service"&gt;<br/>
+      &lt;div class="title"&gt;<br/>
+       &lt;strong&gt;Customer service&lt;/strong&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;ul class="list"&gt;<br/>
+       &lt;li&gt;&lt;a href="/search"&gt;Search&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/news"&gt;News&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/blog"&gt;Blog&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/recentlyviewedproducts"&gt;Recently viewed products&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/compareproducts"&gt;Compare products list&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/newproducts"&gt;New products&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="footer-block my-account"&gt;<br/>
+      &lt;div class="title"&gt;<br/>
+       &lt;strong&gt;My account&lt;/strong&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;ul class="list"&gt;<br/>
+       &lt;li&gt;&lt;a href="/customer/info"&gt;My account&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/order/history"&gt;Orders&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/customer/addresses"&gt;Addresses&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/cart"&gt;Shopping cart&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/wishlist"&gt;Wishlist&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;li&gt;&lt;a href="/vendor/apply"&gt;Apply for vendor account&lt;/a&gt;&lt;/li&gt;<br/>
+      &lt;/ul&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="footer-block follow-us"&gt;<br/>
+      &lt;div class="social"&gt;<br/>
+       &lt;div class="title"&gt;<br/>
+        &lt;strong&gt;Follow us&lt;/strong&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;ul class="networks"&gt;<br/>
+        &lt;li class="facebook"&gt;&lt;a href="http://www.facebook.com/nopCommerce" target="_blank" rel="noopener noreferrer"&gt;Facebook&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li class="twitter"&gt;&lt;a href="https://twitter.com/nopCommerce" target="_blank" rel="noopener noreferrer"&gt;Twitter&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li class="rss"&gt;&lt;a href="/news/rss/1"&gt;RSS&lt;/a&gt;&lt;/li&gt;<br/>
+        &lt;li class="youtube"&gt;&lt;a href="http://www.youtube.com/user/nopCommerce" target="_blank" rel="noopener noreferrer"&gt;YouTube&lt;/a&gt;&lt;/li&gt;<br/>
+       &lt;/ul&gt;<br/>
+      &lt;/div&gt;<br/>
+      &lt;div class="newsletter"&gt;<br/>
+       &lt;div class="title"&gt;<br/>
+        &lt;strong&gt;Newsletter&lt;/strong&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="newsletter-subscribe" id="newsletter-subscribe-block"&gt;<br/>
+        &lt;div class="newsletter-email"&gt;<br/>
+         &lt;input id="newsletter-email" class="newsletter-subscribe-text" placeholder="Enter your email here..." aria-label="Sign up for our newsletter" type="email" name="NewsletterEmail"&gt; &lt;button type="button" id="newsletter-subscribe-button" class="button-1 newsletter-subscribe-button"&gt;Subscribe&lt;/button&gt;<br/>
+        &lt;/div&gt;<br/>
+        &lt;div class="newsletter-validation"&gt;<br/>
+         &lt;span id="subscribe-loading-progress" style="display:none" class="please-wait"&gt;Wait...&lt;/span&gt; &lt;span class="field-validation-valid" data-valmsg-for="NewsletterEmail" data-valmsg-replace="true"&gt;&lt;/span&gt;<br/>
+        &lt;/div&gt;<br/>
+       &lt;/div&gt;<br/>
+       &lt;div class="newsletter-result" id="newsletter-result-block"&gt;&lt;/div&gt;<br/>
+       &lt;input name="__RequestVerificationToken" type="hidden" value="CfDJ8JlLt0C9fJVDip1JcvIpkXQafHiCJXhGcJBUv5Kk3MYu_ctS2C-N8sJYJFQmc3Tkd6tLTjOOfTiY6kWqMTaYFdkDXBkLYc7NMW6iTeMGeBocIu18P4SPY28cYxoMMLuZkrH0IfTRFpbArSJs5khOvWk"&gt;<br/>
+      &lt;/div&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+    &lt;div class="footer-lower"&gt;<br/>
+     &lt;div class="footer-info"&gt;<br/>
+      &lt;span class="footer-disclaimer"&gt;Copyright © 2022 nopCommerce demo store. All rights reserved.&lt;/span&gt;<br/>
+     &lt;/div&gt;<br/>
+     &lt;div class="footer-powered-by"&gt;<br/>
+      Powered by &lt;a href="https://www.nopcommerce.com/" target="_blank"&gt;nopCommerce&lt;/a&gt;<br/>
+     &lt;/div&gt;<br/>
+    &lt;/div&gt;<br/>
+   &lt;/div&gt;<br/>
+  &lt;/div&gt;<br/>
+  &lt;script src="/js/Homepage.Footer.scripts.js?v=eZlXVOtvTtQGxv8U2tz-F0_vsGY"&gt;&lt;/script&gt;<br/>
+  &lt;script src="/Plugins/Widgets.NivoSlider/Scripts/jquery.nivo.slider.js?v=v4esx4-nzB5RcvqrlOrZzpYvBxc"&gt;&lt;/script&gt;<br/>
+  &lt;script&gt;$(window).on("load",function(){$("#nivo-slider").nivoSlider()})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$("#vote-poll-1").on("click",function(){var i=$("input:radio[name=pollanswers-1]:checked").val(),n,t;return typeof i=="undefined"?alert("Please select an answer"):(n=$("#poll-voting-progress-1"),n.show(),t={pollAnswerId:i},addAntiForgeryToken(t),$.ajax({cache:!1,type:"POST",url:"/poll/vote",data:t,success:function(n){n.error&&($("#block-poll-vote-error-1").html(n.error),$("#block-poll-vote-error-1").fadeIn("slow").delay(2e3).fadeOut("slow"));n.html&&$("#poll-block-1").replaceWith(n.html)},error:function(){alert("Failed to vote.")},complete:function(){n.hide()}})),!1})})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$(".header").on("mouseenter","#topcartlink",function(){$("#flyout-cart").addClass("active")});$(".header").on("mouseleave","#topcartlink",function(){$("#flyout-cart").removeClass("active")});$(".header").on("mouseenter","#flyout-cart",function(){$("#flyout-cart").addClass("active")});$(".header").on("mouseleave","#flyout-cart",function(){$("#flyout-cart").removeClass("active")})})&lt;/script&gt;<br/>
+  &lt;script&gt;$("#small-search-box-form").on("submit",function(n){$("#small-searchterms").val()==""&&(alert("Please enter some search keyword"),$("#small-searchterms").focus(),n.preventDefault())})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){var n,t;$("#small-searchterms").autocomplete({delay:500,minLength:3,source:"/catalog/searchtermautocomplete",appendTo:".search-box",select:function(n,t){return $("#small-searchterms").val(t.item.label),setLocation(t.item.producturl),!1},open:function(){n&&(t=document.getElementById("small-searchterms").value,$(".ui-autocomplete").append('&lt;li class="ui-menu-item" role="presentation"&gt;&lt;a href="/search?q='+t+'"&gt;View all results...&lt;\/a&gt;&lt;\/li&gt;'))}}).data("ui-autocomplete")._renderItem=function(t,i){var r=i.label;return n=i.showlinktoresultsearch,r=htmlEncode(r),$("&lt;li&gt;&lt;\/li&gt;").data("item.autocomplete",i).append("&lt;a&gt;&lt;span&gt;"+r+"&lt;\/span&gt;&lt;\/a&gt;").appendTo(t)}})&lt;/script&gt;<br/>
+  &lt;script&gt;var localized_data={AjaxCartFailure:"Failed to add the product. Please refresh the page and try one more time."};AjaxCart.init(!1,".header-links .cart-qty",".header-links .wishlist-qty","#flyout-cart",localized_data)&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$(".menu-toggle").on("click",function(){$(this).siblings(".top-menu.mobile").slideToggle("slow")});$(".top-menu.mobile .sublist-toggle").on("click",function(){$(this).siblings(".sublist").slideToggle("slow")})})&lt;/script&gt;<br/>
+  &lt;script&gt;function newsletter_subscribe(n){var i=$("#subscribe-loading-progress"),t;i.show();t={subscribe:n,email:$("#newsletter-email").val()};addAntiForgeryToken(t);$.ajax({cache:!1,type:"POST",url:"/subscribenewsletter",data:t,success:function(n){$("#newsletter-result-block").html(n.Result);n.Success?($("#newsletter-subscribe-block").hide(),$("#newsletter-result-block").show()):$("#newsletter-result-block").fadeIn("slow").delay(2e3).fadeOut("slow")},error:function(){alert("Failed to subscribe.")},complete:function(){i.hide()}})}$(document).ready(function(){$("#newsletter-subscribe-button").on("click",function(){newsletter_subscribe("true")});$("#newsletter-email").on("keydown",function(n){if(n.keyCode==13)return $("#newsletter-subscribe-button").trigger("click"),!1})})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$(".footer-block .title").on("click",function(){var n=window,t="inner",i;"innerWidth"in window||(t="client",n=document.documentElement||document.body);i={width:n[t+"Width"],height:n[t+"Height"]};i.width&lt;769&&$(this).siblings(".list").slideToggle("slow")})})&lt;/script&gt;<br/>
+  &lt;script&gt;$(document).ready(function(){$(".block .title").on("click",function(){var n=window,t="inner",i;"innerWidth"in window||(t="client",n=document.documentElement||document.body);i={width:n[t+"Width"],height:n[t+"Height"]};i.width&lt;1001&&$(this).siblings(".listbox").slideToggle("slow")})})&lt;/script&gt;<br/>
+  &lt;div role="status" aria-live="assertive" aria-relevant="additions" class="ui-helper-hidden-accessible"&gt;&lt;/div&gt;<br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>

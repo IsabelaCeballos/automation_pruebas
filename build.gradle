@@ -1,19 +1,49 @@
-plugins {
-    id 'java'
-}
+//dependencias del proyecto
+apply plugin: 'java-library'
+// Para agregar un comando que se llama aggregate, que es de Serenity y es para construir el reporte
+apply plugin: 'net.serenity-bdd.aggregator'
 
-group 'org.example'
-version '1.0-SNAPSHOT'
-
+//Repositorios de donde vienen las dependencias del codigo fuente del proyecto
 repositories {
+    mavenLocal()
     mavenCentral()
+    jcenter()
 }
 
+// Es para descargar las dependencias que configuraran a Gradle como tal, no hacen parte del codigo fuente.
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        jcenter()
+    }
+
+    dependencies {
+        // De aqui viene el plugin aggregator que esta en la linea 4
+        classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.80")
+    }
+}
+
+//dependencias del codigo fuente del proyecto
 dependencies {
-    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.8.1'
-    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.8.1'
+    // Dependencias para poder automatizar con Serenity
+    implementation 'net.serenity-bdd:serenity-junit:3.2.3'
+    implementation 'net.serenity-bdd:serenity-cucumber:3.2.3'
+    implementation 'net.serenity-bdd:serenity-core:3.2.3'
+    implementation 'org.slf4j:slf4j-simple:1.7.36'
+    implementation 'com.google.guava:guava:31.1-jre'
 }
 
+// Para configurar propiedades del comando de ejecucion de pruebas con Gradle
 test {
-    useJUnitPlatform()
+//Ignorar los fallos es ejecutar todas las pruebas asi alguna falle
+    ignoreFailures = true
 }
+
+// Configurar el encoding del proyecto
+tasks.withType(JavaCompile) {
+    options.encoding = 'UTF-8'
+}
+
+// Continue asi falle alguna tarea de Gradle
+gradle.startParameter.continueOnFailure = true

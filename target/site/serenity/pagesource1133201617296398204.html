@@ -1,0 +1,641 @@
+<html lang='en'><head><link href='prism/prism.css' rel='stylesheet' /></head><body><script src='prism/prism.js'></script><body><div><pre><code class='language-html'>&lt;html lang="en" xmlns="http://www.w3.org/1999/xhtml"&gt;<br/>
+ &lt;head&gt; <br/>
+  &lt;meta charset="utf-8"&gt; <br/>
+  &lt;title&gt;Internal Server Error&lt;/title&gt; <br/>
+  &lt;style&gt;<br/>
+            body {<br/>
+    font-family: 'Segoe UI', Tahoma, Arial, Helvetica, sans-serif;<br/>
+    font-size: .813em;<br/>
+    color: #222;<br/>
+    background-color: #fff;<br/>
+}<br/>
+<br/>
+h1 {<br/>
+    color: #44525e;<br/>
+    margin: 15px 0 15px 0;<br/>
+}<br/>
+<br/>
+h2 {<br/>
+    margin: 10px 5px 0 0;<br/>
+}<br/>
+<br/>
+h3 {<br/>
+    color: #363636;<br/>
+    margin: 5px 5px 0 0;<br/>
+    font-weight: normal;<br/>
+}<br/>
+<br/>
+code {<br/>
+    font-family: Consolas, "Courier New", courier, monospace;<br/>
+    font-weight: bold;<br/>
+}<br/>
+<br/>
+body .titleerror {<br/>
+    padding: 3px 3px 6px 3px;<br/>
+    display: block;<br/>
+    font-size: 1.5em;<br/>
+    font-weight: 100;<br/>
+}<br/>
+<br/>
+body .location {<br/>
+    margin: 3px 0 10px 30px;<br/>
+}<br/>
+<br/>
+#header {<br/>
+    font-size: 18px;<br/>
+    padding: 15px 0;<br/>
+    border-top: 1px #ddd solid;<br/>
+    border-bottom: 1px #ddd solid;<br/>
+    margin-bottom: 0;<br/>
+}<br/>
+<br/>
+    #header li {<br/>
+        display: inline;<br/>
+        margin: 5px;<br/>
+        padding: 5px;<br/>
+        color: #a0a0a0;<br/>
+        cursor: pointer;<br/>
+    }<br/>
+<br/>
+    #header .selected {<br/>
+        background: #44c5f2;<br/>
+        color: #fff;<br/>
+    }<br/>
+<br/>
+#stackpage ul {<br/>
+    list-style: none;<br/>
+    padding-left: 0;<br/>
+    margin: 0;<br/>
+    /*border-bottom: 1px #ddd solid;*/<br/>
+}<br/>
+<br/>
+#stackpage .details {<br/>
+    font-size: 1.2em;<br/>
+    padding: 3px;<br/>
+    color: #000;<br/>
+}<br/>
+<br/>
+#stackpage .stackerror {<br/>
+    padding: 5px;<br/>
+    border-bottom: 1px #ddd solid;<br/>
+}<br/>
+<br/>
+<br/>
+#stackpage .frame {<br/>
+    padding: 0;<br/>
+    margin: 0 0 0 30px;<br/>
+}<br/>
+<br/>
+    #stackpage .frame h3 {<br/>
+        padding: 2px;<br/>
+        margin: 0;<br/>
+    }<br/>
+<br/>
+#stackpage .source {<br/>
+    padding: 0 0 0 30px;<br/>
+}<br/>
+<br/>
+    #stackpage .source ol li {<br/>
+        font-family: Consolas, "Courier New", courier, monospace;<br/>
+        white-space: pre;<br/>
+        background-color: #fbfbfb;<br/>
+    }<br/>
+<br/>
+#stackpage .frame .source .highlight {<br/>
+    border-left: 3px solid red;<br/>
+    margin-left: -3px;<br/>
+    font-weight: bold;<br/>
+}<br/>
+<br/>
+#stackpage .frame .source .highlight li span {<br/>
+    color: #FF0000;<br/>
+}<br/>
+<br/>
+#stackpage .source ol.collapsible li {<br/>
+    color: #888;<br/>
+}<br/>
+<br/>
+    #stackpage .source ol.collapsible li span {<br/>
+        color: #606060;<br/>
+    }<br/>
+<br/>
+#routingpage .subheader {<br/>
+    padding: 5px;<br/>
+    border-bottom: 1px #ddd solid;<br/>
+}<br/>
+<br/>
+.page table {<br/>
+    border-collapse: separate;<br/>
+    border-spacing: 0;<br/>
+    margin: 0 0 20px;<br/>
+}<br/>
+<br/>
+.page th {<br/>
+    vertical-align: bottom;<br/>
+    padding: 10px 5px 5px 5px;<br/>
+    font-weight: 400;<br/>
+    color: #a0a0a0;<br/>
+    text-align: left;<br/>
+}<br/>
+<br/>
+.page td {<br/>
+    padding: 3px 10px;<br/>
+}<br/>
+<br/>
+.page th, .page td {<br/>
+    border-right: 1px #ddd solid;<br/>
+    border-bottom: 1px #ddd solid;<br/>
+    border-left: 1px transparent solid;<br/>
+    border-top: 1px transparent solid;<br/>
+    box-sizing: border-box;<br/>
+}<br/>
+<br/>
+    .page th:last-child, .page td:last-child {<br/>
+        border-right: 1px transparent solid;<br/>
+    }<br/>
+<br/>
+.page .length {<br/>
+    text-align: right;<br/>
+}<br/>
+<br/>
+a {<br/>
+    color: #1ba1e2;<br/>
+    text-decoration: none;<br/>
+}<br/>
+<br/>
+    a:hover {<br/>
+        color: #13709e;<br/>
+        text-decoration: underline;<br/>
+    }<br/>
+<br/>
+.showRawException {<br/>
+    cursor: pointer;<br/>
+    color: #44c5f2;<br/>
+    background-color: transparent;<br/>
+    font-size: 1.2em;<br/>
+    text-align: left;<br/>
+    text-decoration: none;<br/>
+    display: inline-block;<br/>
+    border: 0;<br/>
+    padding: 0;<br/>
+}<br/>
+<br/>
+.rawExceptionStackTrace {<br/>
+    font-size: 1.2em;<br/>
+}<br/>
+<br/>
+.rawExceptionBlock {<br/>
+    border-top: 1px #ddd solid;<br/>
+    border-bottom: 1px #ddd solid;<br/>
+}<br/>
+<br/>
+.showRawExceptionContainer {<br/>
+    margin-top: 10px;<br/>
+    margin-bottom: 10px;<br/>
+}<br/>
+<br/>
+.expandCollapseButton {<br/>
+    cursor: pointer;<br/>
+    float: left;<br/>
+    height: 16px;<br/>
+    width: 16px;<br/>
+    font-size: 10px;<br/>
+    position: absolute;<br/>
+    left: 10px;<br/>
+    background-color: #eee;<br/>
+    padding: 0;<br/>
+    border: 0;<br/>
+    margin: 0;<br/>
+}<br/>
+<br/>
+        &lt;/style&gt; <br/>
+ &lt;/head&gt; <br/>
+ &lt;body&gt; <br/>
+  &lt;h1&gt;An unhandled exception occurred while processing the request.&lt;/h1&gt; <br/>
+  &lt;div class="titleerror"&gt;<br/>
+   SqlException: Cannot open database "nopCommerceDemo2" requested by the login. The login failed.<br/>
+   &lt;br&gt; Login failed for user 'nopDemo2'.<br/>
+  &lt;/div&gt; <br/>
+  &lt;p class="location"&gt;Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, uint waitForMultipleObjectsTimeout, bool allowCreate, bool onlyOneCheckConnection, DbConnectionOptions userOptions, out DbConnectionInternal connection)&lt;/p&gt; <br/>
+  &lt;ul id="header"&gt; <br/>
+   &lt;li id="stack" tabindex="1" class="selected"&gt; Stack &lt;/li&gt; <br/>
+   &lt;li id="query" tabindex="2"&gt; Query &lt;/li&gt; <br/>
+   &lt;li id="cookies" tabindex="3"&gt; Cookies &lt;/li&gt; <br/>
+   &lt;li id="headers" tabindex="4"&gt; Headers &lt;/li&gt; <br/>
+   &lt;li id="routing" tabindex="5"&gt; Routing &lt;/li&gt; <br/>
+  &lt;/ul&gt; <br/>
+  &lt;div id="stackpage" class="page" style=""&gt; <br/>
+   &lt;ul&gt; <br/>
+    &lt;li&gt; &lt;h2 class="stackerror"&gt;SqlException: Cannot open database "nopCommerceDemo2" requested by the login. The login failed. Login failed for user 'nopDemo2'.&lt;/h2&gt; <br/>
+     &lt;ul&gt; <br/>
+      &lt;li class="frame" id="frame1"&gt; &lt;h3&gt;Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, uint waitForMultipleObjectsTimeout, bool allowCreate, bool onlyOneCheckConnection, DbConnectionOptions userOptions, out DbConnectionInternal connection)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame2"&gt; &lt;h3&gt;Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource&lt;DbConnectionInternal&gt; retry, DbConnectionOptions userOptions, out DbConnectionInternal connection)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame3"&gt; &lt;h3&gt;Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource&lt;DbConnectionInternal&gt; retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, out DbConnectionInternal connection)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame4"&gt; &lt;h3&gt;Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource&lt;DbConnectionInternal&gt; retry, DbConnectionOptions userOptions)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame5"&gt; &lt;h3&gt;Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource&lt;DbConnectionInternal&gt; retry, SqlConnectionOverrides overrides)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame6"&gt; &lt;h3&gt;Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame7"&gt; &lt;h3&gt;LinqToDB.Data.DataConnection.EnsureConnectionAsync(CancellationToken cancellationToken)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame8"&gt; &lt;h3&gt;LinqToDB.Data.DataConnection+QueryRunner.ExecuteScalarAsync(CancellationToken cancellationToken)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame9"&gt; &lt;h3&gt;LinqToDB.Linq.QueryRunner.ScalarQueryAsync(Query query, IDataContext dataContext, Expression expression, object[] ps, object[] preambles, CancellationToken cancellationToken)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame10"&gt; &lt;h3&gt;LinqToDB.Linq.QueryRunner.ScalarQueryAsync(Query query, IDataContext dataContext, Expression expression, object[] ps, object[] preambles, CancellationToken cancellationToken)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame11"&gt; &lt;h3&gt;LinqToDB.Linq.QueryRunner+InsertWithIdentity&lt;T&gt;.QueryAsync(IDataContext dataContext, T obj, InsertColumnFilter&lt;T&gt; columnFilter, string tableName, string serverName, string databaseName, string schemaName, TableOptions tableOptions, CancellationToken token)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame12"&gt; &lt;h3&gt;LinqToDB.DataExtensions.InsertWithInt32IdentityAsync&lt;T&gt;(IDataContext dataContext, T obj, InsertColumnFilter&lt;T&gt; columnFilter, string tableName, string databaseName, string schemaName, string serverName, TableOptions tableOptions, CancellationToken token)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame13"&gt; &lt;h3&gt;Nop.Data.DataProviders.BaseDataProvider.InsertEntityAsync&lt;TEntity&gt;(TEntity entity) in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Data\DataProviders\BaseDataProvider.cs"&gt;BaseDataProvider.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame14"&gt; &lt;h3&gt;Nop.Data.EntityRepository&lt;TEntity&gt;.InsertAsync(TEntity entity, bool publishEvent) in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Data\EntityRepository.cs"&gt;EntityRepository.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame15"&gt; &lt;h3&gt;Nop.Services.Customers.CustomerService.InsertGuestCustomerAsync() in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Services\Customers\CustomerService.cs"&gt;CustomerService.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame16"&gt; &lt;h3&gt;Nop.Web.Framework.WebWorkContext.SetCurrentCustomerAsync(Customer customer) in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Presentation\Nop.Web.Framework\WebWorkContext.cs"&gt;WebWorkContext.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame17"&gt; &lt;h3&gt;Nop.Web.Framework.WebWorkContext.GetCurrentCustomerAsync() in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Presentation\Nop.Web.Framework\WebWorkContext.cs"&gt;WebWorkContext.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame18"&gt; &lt;h3&gt;Nop.Services.Security.PermissionService.AuthorizeAsync(PermissionRecord permission) in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Services\Security\PermissionService.cs"&gt;PermissionService.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame19"&gt; &lt;h3&gt;Nop.Web.Framework.Mvc.Filters.CheckAccessPublicStoreAttribute+CheckAccessPublicStoreFilter.CheckAccessPublicStoreAsync(AuthorizationFilterContext context) in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Presentation\Nop.Web.Framework\Mvc\Filters\CheckAccessPublicStoreAttribute.cs"&gt;CheckAccessPublicStoreAttribute.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame20"&gt; &lt;h3&gt;Nop.Web.Framework.Mvc.Filters.CheckAccessPublicStoreAttribute+CheckAccessPublicStoreFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Presentation\Nop.Web.Framework\Mvc\Filters\CheckAccessPublicStoreAttribute.cs"&gt;CheckAccessPublicStoreAttribute.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame21"&gt; &lt;h3&gt;Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeFilterPipelineAsync&gt;g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, object state, bool isCompleted)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame22"&gt; &lt;h3&gt;Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeAsync&gt;g__Logged|17_1(ResourceInvoker invoker)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame23"&gt; &lt;h3&gt;Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeAsync&gt;g__Logged|17_1(ResourceInvoker invoker)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame24"&gt; &lt;h3&gt;Microsoft.AspNetCore.Routing.EndpointMiddleware.&lt;Invoke&gt;g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame25"&gt; &lt;h3&gt;Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame26"&gt; &lt;h3&gt;Nop.Services.Authentication.AuthenticationMiddleware.InvokeAsync(HttpContext context) in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Services\Authentication\AuthenticationMiddleware.cs"&gt;AuthenticationMiddleware.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame27"&gt; &lt;h3&gt;StackExchange.Profiling.MiniProfilerMiddleware.Invoke(HttpContext context) in &lt;code title="C:\projects\dotnet\src\MiniProfiler.AspNetCore\MiniProfilerMiddleware.cs"&gt;MiniProfilerMiddleware.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame28"&gt; &lt;h3&gt;WebMarkupMin.AspNetCore6.WebMarkupMinMiddleware.ProcessAsync(HttpContext context, bool useMinification, bool useCompression)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame29"&gt; &lt;h3&gt;WebMarkupMin.AspNetCore6.WebMarkupMinMiddleware.ProcessAsync(HttpContext context, bool useMinification, bool useCompression)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame30"&gt; &lt;h3&gt;WebMarkupMin.AspNetCore6.WebMarkupMinMiddlewareBase.Invoke(HttpContext context)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame31"&gt; &lt;h3&gt;Nop.Web.Framework.Infrastructure.RestartedDatabaseMiddleware.Invoke(HttpContext context, IWebHelper webHelper) in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Presentation\Nop.Web.Framework\Infrastructure\RestartedDatabaseMiddleware.cs"&gt;RestartedDatabaseMiddleware.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame32"&gt; &lt;h3&gt;Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame33"&gt; &lt;h3&gt;Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame34"&gt; &lt;h3&gt;Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame35"&gt; &lt;h3&gt;Nop.Services.Installation.InstallUrlMiddleware.InvokeAsync(HttpContext context, IWebHelper webHelper) in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Services\Installation\InstallUrlMiddleware.cs"&gt;InstallUrlMiddleware.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame36"&gt; &lt;h3&gt;Nop.Services.Common.KeepAliveMiddleware.InvokeAsync(HttpContext context, IWebHelper webHelper) in &lt;code title="C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Services\Common\KeepAliveMiddleware.cs"&gt;KeepAliveMiddleware.cs&lt;/code&gt;&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame37"&gt; &lt;h3&gt;Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame38"&gt; &lt;h3&gt;Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame39"&gt; &lt;h3&gt;Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame40"&gt; &lt;h3&gt;Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.&lt;Invoke&gt;g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame41"&gt; &lt;h3&gt;Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame42"&gt; &lt;h3&gt;Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.&lt;Invoke&gt;g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)&lt;/h3&gt; &lt;/li&gt; <br/>
+      &lt;li class="frame" id="frame43"&gt; &lt;h3&gt;Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)&lt;/h3&gt; &lt;/li&gt; <br/>
+     &lt;/ul&gt; &lt;/li&gt; <br/>
+    &lt;li&gt; &lt;br&gt; <br/>
+     &lt;div class="rawExceptionBlock"&gt; <br/>
+      &lt;div class="showRawExceptionContainer"&gt; &lt;button class="showRawException" data-exceptiondetailid="exceptionDetail1"&gt;Show raw exception details&lt;/button&gt; <br/>
+      &lt;/div&gt; <br/>
+      &lt;div id="exceptionDetail1" class="rawExceptionDetails" style="display: none;"&gt; <br/>
+       &lt;pre class="rawExceptionStackTrace"&gt;Microsoft.Data.SqlClient.SqlException (0x80131904): Cannot open database "nopCommerceDemo2" requested by the login. The login failed.<br/>
+Login failed for user 'nopDemo2'.<br/>
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, UInt32 waitForMultipleObjectsTimeout, Boolean allowCreate, Boolean onlyOneCheckConnection, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)<br/>
+   at Microsoft.Data.ProviderBase.DbConnectionPool.TryGetConnection(DbConnection owningObject, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal&amp; connection)<br/>
+   at Microsoft.Data.ProviderBase.DbConnectionFactory.TryGetConnection(DbConnection owningConnection, TaskCompletionSource`1 retry, DbConnectionOptions userOptions, DbConnectionInternal oldConnection, DbConnectionInternal&amp; connection)<br/>
+   at Microsoft.Data.ProviderBase.DbConnectionInternal.TryOpenConnectionInternal(DbConnection outerConnection, DbConnectionFactory connectionFactory, TaskCompletionSource`1 retry, DbConnectionOptions userOptions)<br/>
+   at Microsoft.Data.SqlClient.SqlConnection.TryOpen(TaskCompletionSource`1 retry, SqlConnectionOverrides overrides)<br/>
+   at Microsoft.Data.SqlClient.SqlConnection.InternalOpenAsync(CancellationToken cancellationToken)<br/>
+--- End of stack trace from previous location ---<br/>
+   at LinqToDB.Data.DataConnection.EnsureConnectionAsync(CancellationToken cancellationToken)<br/>
+   at LinqToDB.Data.DataConnection.QueryRunner.ExecuteScalarAsync(CancellationToken cancellationToken)<br/>
+   at LinqToDB.Linq.QueryRunner.ScalarQueryAsync(Query query, IDataContext dataContext, Expression expression, Object[] ps, Object[] preambles, CancellationToken cancellationToken)<br/>
+   at LinqToDB.Linq.QueryRunner.ScalarQueryAsync(Query query, IDataContext dataContext, Expression expression, Object[] ps, Object[] preambles, CancellationToken cancellationToken)<br/>
+   at LinqToDB.Linq.QueryRunner.InsertWithIdentity`1.QueryAsync(IDataContext dataContext, T obj, InsertColumnFilter`1 columnFilter, String tableName, String serverName, String databaseName, String schemaName, TableOptions tableOptions, CancellationToken token)<br/>
+   at LinqToDB.DataExtensions.InsertWithInt32IdentityAsync[T](IDataContext dataContext, T obj, InsertColumnFilter`1 columnFilter, String tableName, String databaseName, String schemaName, String serverName, TableOptions tableOptions, CancellationToken token)<br/>
+   at Nop.Data.DataProviders.BaseDataProvider.InsertEntityAsync[TEntity](TEntity entity) in C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Data\DataProviders\BaseDataProvider.cs:line 281<br/>
+   at Nop.Data.EntityRepository`1.InsertAsync(TEntity entity, Boolean publishEvent) in C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Data\EntityRepository.cs:line 350<br/>
+   at Nop.Services.Customers.CustomerService.InsertGuestCustomerAsync() in C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Services\Customers\CustomerService.cs:line 647<br/>
+   at Nop.Web.Framework.WebWorkContext.SetCurrentCustomerAsync(Customer customer) in C:\andrei\nopcommerce\demo_sites\sources\src\Presentation\Nop.Web.Framework\WebWorkContext.cs:line 290<br/>
+   at Nop.Web.Framework.WebWorkContext.GetCurrentCustomerAsync() in C:\andrei\nopcommerce\demo_sites\sources\src\Presentation\Nop.Web.Framework\WebWorkContext.cs:line 210<br/>
+   at Nop.Services.Security.PermissionService.AuthorizeAsync(PermissionRecord permission) in C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Services\Security\PermissionService.cs:line 263<br/>
+   at Nop.Web.Framework.Mvc.Filters.CheckAccessPublicStoreAttribute.CheckAccessPublicStoreFilter.CheckAccessPublicStoreAsync(AuthorizationFilterContext context) in C:\andrei\nopcommerce\demo_sites\sources\src\Presentation\Nop.Web.Framework\Mvc\Filters\CheckAccessPublicStoreAttribute.cs:line 95<br/>
+   at Nop.Web.Framework.Mvc.Filters.CheckAccessPublicStoreAttribute.CheckAccessPublicStoreFilter.OnAuthorizationAsync(AuthorizationFilterContext context) in C:\andrei\nopcommerce\demo_sites\sources\src\Presentation\Nop.Web.Framework\Mvc\Filters\CheckAccessPublicStoreAttribute.cs:line 109<br/>
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeFilterPipelineAsync&gt;g__Awaited|20_0(ResourceInvoker invoker, Task lastTask, State next, Scope scope, Object state, Boolean isCompleted)<br/>
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeAsync&gt;g__Logged|17_1(ResourceInvoker invoker)<br/>
+   at Microsoft.AspNetCore.Mvc.Infrastructure.ResourceInvoker.&lt;InvokeAsync&gt;g__Logged|17_1(ResourceInvoker invoker)<br/>
+   at Microsoft.AspNetCore.Routing.EndpointMiddleware.&lt;Invoke&gt;g__AwaitRequestTask|6_0(Endpoint endpoint, Task requestTask, ILogger logger)<br/>
+   at Microsoft.AspNetCore.Authorization.AuthorizationMiddleware.Invoke(HttpContext context)<br/>
+   at Nop.Services.Authentication.AuthenticationMiddleware.InvokeAsync(HttpContext context) in C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Services\Authentication\AuthenticationMiddleware.cs:line 94<br/>
+   at StackExchange.Profiling.MiniProfilerMiddleware.Invoke(HttpContext context) in C:\projects\dotnet\src\MiniProfiler.AspNetCore\MiniProfilerMiddleware.cs:line 121<br/>
+   at WebMarkupMin.AspNetCore6.WebMarkupMinMiddleware.ProcessAsync(HttpContext context, Boolean useMinification, Boolean useCompression)<br/>
+   at WebMarkupMin.AspNetCore6.WebMarkupMinMiddleware.ProcessAsync(HttpContext context, Boolean useMinification, Boolean useCompression)<br/>
+   at WebMarkupMin.AspNetCore6.WebMarkupMinMiddlewareBase.Invoke(HttpContext context)<br/>
+   at Nop.Web.Framework.Infrastructure.RestartedDatabaseMiddleware.Invoke(HttpContext context, IWebHelper webHelper) in C:\andrei\nopcommerce\demo_sites\sources\src\Presentation\Nop.Web.Framework\Infrastructure\RestartedDatabaseMiddleware.cs:line 69<br/>
+   at Microsoft.AspNetCore.Localization.RequestLocalizationMiddleware.Invoke(HttpContext context)<br/>
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)<br/>
+   at Microsoft.AspNetCore.Session.SessionMiddleware.Invoke(HttpContext context)<br/>
+   at Nop.Services.Installation.InstallUrlMiddleware.InvokeAsync(HttpContext context, IWebHelper webHelper) in C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Services\Installation\InstallUrlMiddleware.cs:line 53<br/>
+   at Nop.Services.Common.KeepAliveMiddleware.InvokeAsync(HttpContext context, IWebHelper webHelper) in C:\andrei\nopcommerce\demo_sites\sources\src\Libraries\Nop.Services\Common\KeepAliveMiddleware.cs:line 50<br/>
+   at Microsoft.AspNetCore.ResponseCompression.ResponseCompressionMiddleware.InvokeCore(HttpContext context)<br/>
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)<br/>
+   at Microsoft.AspNetCore.Diagnostics.StatusCodePagesMiddleware.Invoke(HttpContext context)<br/>
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.&lt;Invoke&gt;g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)<br/>
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.HandleException(HttpContext context, ExceptionDispatchInfo edi)<br/>
+   at Microsoft.AspNetCore.Diagnostics.ExceptionHandlerMiddleware.&lt;Invoke&gt;g__Awaited|6_0(ExceptionHandlerMiddleware middleware, HttpContext context, Task task)<br/>
+   at Microsoft.AspNetCore.Diagnostics.DeveloperExceptionPageMiddleware.Invoke(HttpContext context)<br/>
+ClientConnectionId:eeeb1b8c-a154-41ce-b0da-c08570e180d9<br/>
+Error Number:4060,State:1,Class:11&lt;/pre&gt; <br/>
+      &lt;/div&gt; <br/>
+     &lt;/div&gt; &lt;/li&gt; <br/>
+   &lt;/ul&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="querypage" class="page" style="display: none;"&gt; <br/>
+   &lt;p&gt;No query string data.&lt;/p&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="cookiespage" class="page" style="display: none;"&gt; <br/>
+   &lt;p&gt;No cookie data.&lt;/p&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="headerspage" class="page" style="display: none;"&gt; <br/>
+   &lt;table&gt; <br/>
+    &lt;thead&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;th&gt;Variable&lt;/th&gt; <br/>
+      &lt;th&gt;Value&lt;/th&gt; <br/>
+     &lt;/tr&gt; <br/>
+    &lt;/thead&gt; <br/>
+    &lt;tbody&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;Accept&lt;/td&gt; <br/>
+      &lt;td&gt;text/html,application/xhtml+xml,application/xml;q=0.9,image/avif,image/webp,image/apng,*/*;q=0.8,application/signed-exchange;v=b3;q=0.9&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;Accept-Encoding&lt;/td&gt; <br/>
+      &lt;td&gt;gzip&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;Accept-Language&lt;/td&gt; <br/>
+      &lt;td&gt;es-ES,es;q=0.9&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;Cache-Control&lt;/td&gt; <br/>
+      &lt;td&gt;max-age=0&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;CDN-Loop&lt;/td&gt; <br/>
+      &lt;td&gt;cloudflare&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;CF-Connecting-IP&lt;/td&gt; <br/>
+      &lt;td&gt;2800:484:9a89:d96f:e91c:4a41:b505:d494&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;CF-IPCountry&lt;/td&gt; <br/>
+      &lt;td&gt;CO&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;CF-RAY&lt;/td&gt; <br/>
+      &lt;td&gt;71e09f8efd05b05c-ATL&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;CF-Visitor&lt;/td&gt; <br/>
+      &lt;td&gt;{"scheme":"https"}&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;Connection&lt;/td&gt; <br/>
+      &lt;td&gt;Keep-Alive&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;Host&lt;/td&gt; <br/>
+      &lt;td&gt;demo.nopcommerce.com&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;sec-ch-ua&lt;/td&gt; <br/>
+      &lt;td&gt;" Not A;Brand";v="99", "Chromium";v="102", "Google Chrome";v="102"&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;sec-ch-ua-mobile&lt;/td&gt; <br/>
+      &lt;td&gt;?0&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;sec-ch-ua-platform&lt;/td&gt; <br/>
+      &lt;td&gt;"Windows"&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;sec-fetch-dest&lt;/td&gt; <br/>
+      &lt;td&gt;document&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;sec-fetch-mode&lt;/td&gt; <br/>
+      &lt;td&gt;navigate&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;sec-fetch-site&lt;/td&gt; <br/>
+      &lt;td&gt;none&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;sec-fetch-user&lt;/td&gt; <br/>
+      &lt;td&gt;?1&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;upgrade-insecure-requests&lt;/td&gt; <br/>
+      &lt;td&gt;1&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;User-Agent&lt;/td&gt; <br/>
+      &lt;td&gt;Mozilla/5.0 (Windows NT 10.0; Win64; x64) AppleWebKit/537.36 (KHTML, like Gecko) Chrome/102.0.5005.115 Safari/537.36&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;X-Forwarded-For&lt;/td&gt; <br/>
+      &lt;td&gt;2800:484:9a89:d96f:e91c:4a41:b505:d494&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+     &lt;tr&gt; <br/>
+      &lt;td&gt;X-Forwarded-Proto&lt;/td&gt; <br/>
+      &lt;td&gt;https&lt;/td&gt; <br/>
+     &lt;/tr&gt; <br/>
+    &lt;/tbody&gt; <br/>
+   &lt;/table&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;div id="routingpage" class="page" style="display: none;"&gt; <br/>
+   &lt;h2 class="subheader"&gt;Endpoint&lt;/h2&gt; <br/>
+   &lt;p&gt;No endpoint.&lt;/p&gt; <br/>
+   &lt;h2 class="subheader"&gt;Route Values&lt;/h2&gt; <br/>
+   &lt;p&gt;No route values.&lt;/p&gt; <br/>
+  &lt;/div&gt; <br/>
+  &lt;script&gt;<br/>
+            //&lt;!--<br/>
+            (function (window, undefined) {<br/>
+    "use strict";<br/>
+<br/>
+    function ns(selector, element) {<br/>
+        return new NodeCollection(selector, element);<br/>
+    }<br/>
+<br/>
+    function NodeCollection(selector, element) {<br/>
+        this.items = [];<br/>
+        element = element || window.document;<br/>
+<br/>
+        var nodeList;<br/>
+<br/>
+        if (typeof (selector) === "string") {<br/>
+            nodeList = element.querySelectorAll(selector);<br/>
+            for (var i = 0, l = nodeList.length; i &lt; l; i++) {<br/>
+                this.items.push(nodeList.item(i));<br/>
+            }<br/>
+        }<br/>
+    }<br/>
+<br/>
+    NodeCollection.prototype = {<br/>
+        each: function (callback) {<br/>
+            for (var i = 0, l = this.items.length; i &lt; l; i++) {<br/>
+                callback(this.items[i], i);<br/>
+            }<br/>
+            return this;<br/>
+        },<br/>
+<br/>
+        children: function (selector) {<br/>
+            var children = [];<br/>
+<br/>
+            this.each(function (el) {<br/>
+                children = children.concat(ns(selector, el).items);<br/>
+            });<br/>
+<br/>
+            return ns(children);<br/>
+        },<br/>
+<br/>
+        hide: function () {<br/>
+            this.each(function (el) {<br/>
+                el.style.display = "none";<br/>
+            });<br/>
+<br/>
+            return this;<br/>
+        },<br/>
+<br/>
+        toggle: function () {<br/>
+            this.each(function (el) {<br/>
+                el.style.display = el.style.display === "none" ? "" : "none";<br/>
+            });<br/>
+<br/>
+            return this;<br/>
+        },<br/>
+<br/>
+        show: function () {<br/>
+            this.each(function (el) {<br/>
+                el.style.display = "";<br/>
+            });<br/>
+<br/>
+            return this;<br/>
+        },<br/>
+<br/>
+        addClass: function (className) {<br/>
+            this.each(function (el) {<br/>
+                var existingClassName = el.className,<br/>
+                    classNames;<br/>
+                if (!existingClassName) {<br/>
+                    el.className = className;<br/>
+                } else {<br/>
+                    classNames = existingClassName.split(" ");<br/>
+                    if (classNames.indexOf(className) &lt; 0) {<br/>
+                        el.className = existingClassName + " " + className;<br/>
+                    }<br/>
+                }<br/>
+            });<br/>
+<br/>
+            return this;<br/>
+        },<br/>
+<br/>
+        removeClass: function (className) {<br/>
+            this.each(function (el) {<br/>
+                var existingClassName = el.className,<br/>
+                    classNames, index;<br/>
+                if (existingClassName === className) {<br/>
+                    el.className = "";<br/>
+                } else if (existingClassName) {<br/>
+                    classNames = existingClassName.split(" ");<br/>
+                    index = classNames.indexOf(className);<br/>
+                    if (index &gt; 0) {<br/>
+                        classNames.splice(index, 1);<br/>
+                        el.className = classNames.join(" ");<br/>
+                    }<br/>
+                }<br/>
+            });<br/>
+<br/>
+            return this;<br/>
+        },<br/>
+<br/>
+        attr: function (name) {<br/>
+            if (this.items.length === 0) {<br/>
+                return null;<br/>
+            }<br/>
+<br/>
+            return this.items[0].getAttribute(name);<br/>
+        },<br/>
+<br/>
+        on: function (eventName, handler) {<br/>
+            this.each(function (el, idx) {<br/>
+                var callback = function (e) {<br/>
+                    e = e || window.event;<br/>
+                    if (!e.which && e.keyCode) {<br/>
+                        e.which = e.keyCode; // Normalize IE8 key events<br/>
+                    }<br/>
+                    handler.apply(el, [e]);<br/>
+                };<br/>
+<br/>
+                if (el.addEventListener) { // DOM Events<br/>
+                    el.addEventListener(eventName, callback, false);<br/>
+                } else if (el.attachEvent) { // IE8 events<br/>
+                    el.attachEvent("on" + eventName, callback);<br/>
+                } else {<br/>
+                    el["on" + type] = callback;<br/>
+                }<br/>
+            });<br/>
+<br/>
+            return this;<br/>
+        },<br/>
+<br/>
+        click: function (handler) {<br/>
+            return this.on("click", handler);<br/>
+        },<br/>
+<br/>
+        keypress: function (handler) {<br/>
+            return this.on("keypress", handler);<br/>
+        }<br/>
+    };<br/>
+<br/>
+    function frame(el) {<br/>
+        ns(".source .collapsible", el).toggle();<br/>
+    }<br/>
+<br/>
+    function expandCollapseButton(el) {<br/>
+        var frameId = el.getAttribute("data-frameId");<br/>
+        frame(document.getElementById(frameId));<br/>
+        if (el.innerText === "+") {<br/>
+            el.innerText = "-";<br/>
+        }<br/>
+        else {<br/>
+            el.innerText = "+";<br/>
+        }<br/>
+    }<br/>
+<br/>
+    function tab(el) {<br/>
+        var unselected = ns("#header .selected").removeClass("selected").attr("id");<br/>
+        var selected = ns("#" + el.id).addClass("selected").attr("id");<br/>
+<br/>
+        ns("#" + unselected + "page").hide();<br/>
+        ns("#" + selected + "page").show();<br/>
+    }<br/>
+<br/>
+    ns(".rawExceptionDetails").hide();<br/>
+    ns(".collapsible").hide();<br/>
+    ns(".page").hide();<br/>
+    ns("#stackpage").show();<br/>
+<br/>
+    ns(".expandCollapseButton")<br/>
+        .click(function () {<br/>
+            expandCollapseButton(this);<br/>
+        })<br/>
+        .keypress(function (e) {<br/>
+            if (e.which === 13) {<br/>
+                expandCollapseButton(this);<br/>
+            }<br/>
+        });<br/>
+<br/>
+    ns("#header li")<br/>
+        .click(function () {<br/>
+            tab(this);<br/>
+        })<br/>
+        .keypress(function (e) {<br/>
+            if (e.which === 13) {<br/>
+                tab(this);<br/>
+            }<br/>
+        });<br/>
+<br/>
+    ns(".showRawException")<br/>
+        .click(function () {<br/>
+            var exceptionDetailId = this.getAttribute("data-exceptionDetailId");<br/>
+            ns("#" + exceptionDetailId).toggle();<br/>
+        });<br/>
+})(window);<br/>
+            //--&gt;<br/>
+        &lt;/script&gt; <br/>
+ &lt;/body&gt;<br/>
+&lt;/html&gt;</code></pre></div></body></html>
