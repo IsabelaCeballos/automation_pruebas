@@ -14,7 +14,7 @@ import javax.swing.*;
 
 @DefaultUrl("https://demo.nopcommerce.com/")
 public class HomepagePageObject extends PageObject {
-
+    //método donde se describe la acción de los elementos
     public void hoverLnkComputers(){
         //System.out.println(this.getDriver().toString());
         Actions action = new Actions(this.getDriver());

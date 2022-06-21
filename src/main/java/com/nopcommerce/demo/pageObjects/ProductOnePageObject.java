@@ -9,6 +9,7 @@ import org.openqa.selenium.support.ui.Select;
 import static org.junit.Assert.assertEquals;
 
 public class ProductOnePageObject extends PageObject {
+    //mapeo de los elementos
     By txtOne = By.xpath("//*[@id=\"product-details-form\"]/div[2]/div[1]/div[2]/div[1]/h1");
     By selectRAM = By.xpath("//select[@id=\"product_attribute_2\"]");
     By selectHDD = By.xpath("//input[@id=\"product_attribute_3_7\"]");
@@ -22,8 +23,10 @@ public class ProductOnePageObject extends PageObject {
     By txtOptionSoftwareTwo = By.xpath("//label[@for=\"product_attribute_5_11\"]");
     By txtPrice = By.xpath("//span[@id=\"price-value-1\"]");
 
+    //Declaración de un objeto tipo ScrollDown
     ScrollDown scrollDown = new ScrollDown(this.getDriver());
 
+    //métodos donde se describen las acciones de los objetos mapeados
     public void verificationTitleOne(){
         String texto = getDriver().findElement(txtOne).getText();
         assertEquals(texto,"Build your own computer");

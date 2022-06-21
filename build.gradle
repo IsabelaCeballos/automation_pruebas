@@ -9,7 +9,6 @@ repositories {
     mavenCentral()
     jcenter()
 }
-
 // Es para descargar las dependencias que configuraran a Gradle como tal, no hacen parte del codigo fuente.
 buildscript {
     repositories {
@@ -17,13 +16,11 @@ buildscript {
         mavenCentral()
         jcenter()
     }
-
     dependencies {
         // De aqui viene el plugin aggregator que esta en la linea 4
         classpath("net.serenity-bdd:serenity-gradle-plugin:2.0.80")
     }
 }
-
 //dependencias del codigo fuente del proyecto
 dependencies {
     // Dependencias para poder automatizar con Serenity
@@ -33,17 +30,14 @@ dependencies {
     implementation 'org.slf4j:slf4j-simple:1.7.36'
     implementation 'com.google.guava:guava:31.1-jre'
 }
-
 // Para configurar propiedades del comando de ejecucion de pruebas con Gradle
 test {
 //Ignorar los fallos es ejecutar todas las pruebas asi alguna falle
     ignoreFailures = true
 }
-
 // Configurar el encoding del proyecto
 tasks.withType(JavaCompile) {
     options.encoding = 'UTF-8'
 }
-
 // Continue asi falle alguna tarea de Gradle
 gradle.startParameter.continueOnFailure = true

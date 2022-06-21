@@ -4,6 +4,7 @@ import com.nopcommerce.demo.pageObjects.DesktopPageObject;
 import net.thucydides.core.annotations.Step;
 
 public class DesktopStep {
+    //evidencias para generar un reporte
     DesktopPageObject desktopPageObject = new DesktopPageObject();
     @Step
     public void buttonAdd() throws InterruptedException {

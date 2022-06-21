@@ -6,6 +6,7 @@ import net.thucydides.core.pages.PageObject;
 import org.openqa.selenium.By;
 
 public class ShoppingCartStep extends PageObject {
+  //evidencias para generar un reporte
   ShoppingCartPageObject shoppingCartPageObject = new ShoppingCartPageObject();
   @Step
   public void verificationRAM(){ shoppingCartPageObject.verificationRAM();}

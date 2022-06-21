@@ -5,6 +5,7 @@ import com.nopcommerce.demo.pageObjects.ProductOnePageObject;
 import net.thucydides.core.annotations.Step;
 
 public class ProductOnePageStep {
+    //evidencias para generar un reporte
     ProductOnePageObject productOnePageObject = new ProductOnePageObject();
 
     @Step
