@@ -17,7 +17,18 @@ public class ShoppingCartStep extends PageObject {
   public  void verificationSoftwareTwo(){ shoppingCartPageObject.verificationSoftwareTwo();}
   @Step
   public  void verificationPrice(){ shoppingCartPageObject.verificationPrice();}
-  /*@Step
-  public  void verificationTotal(){ shoppingCartPageObject.verificationTotal();}*/
-
+  @Step
+  public  void verificationTotal(){ shoppingCartPageObject.verificationTotal();}
+  @Step
+  public void verificationNameSecond(){
+    shoppingCartPageObject.verificationNameSecond();
+  }
+  @Step
+  public void  verificationPriceSecond(){
+    shoppingCartPageObject.verificationPriceSecond();
+  }
+  @Step
+  public void verificationTotalSecond(){
+    shoppingCartPageObject.verificationTotalSecond();
+  }
 }

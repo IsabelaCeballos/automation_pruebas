@@ -8,7 +8,6 @@ import com.nopcommerce.demo.steps.ShoppingCartStep;
 import io.cucumber.java.en.Given;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
-import net.thucydides.core.annotations.Step;
 import net.thucydides.core.annotations.Steps;
 
 public class PurchasingProcessStepDefinition {
@@ -36,15 +35,24 @@ public class PurchasingProcessStepDefinition {
         productOnePageStep.clickButtonAddCart();
         productOnePageStep.handlePrompt();
         productOnePageStep.clickLnkShoppingCart();
-        //productOnePageStep.localStorage();
+    }
+    @Then("the user can see the detail of the added products")
+    public void theUserCanSeeTheDetailOfTheAddedProducts() {
         shoppingCartStep.verificationRAM();
         shoppingCartStep.verificationHDD();
         shoppingCartStep.verificationSoftwareOne();
         shoppingCartStep.verificationSoftwareTwo();
         shoppingCartStep.verificationPrice();
-        //shoppingCartStep.verificationTotal();
+        shoppingCartStep.verificationTotal();
     }
-    @Then("the user can see the detail of the added products")
-    public void theUserCanSeeTheDetailOfTheAddedProducts() {
+    @Then("the user add other product to shopping cart")
+    public void theUserAddOtherProductToShoppingCart() throws InterruptedException {
+        desktopStep.buttonAddTwo();
+        desktopStep.handleAdvice();
+        desktopStep.saveNamePrice();
+        shoppingCartStep.verificationNameSecond();
+        shoppingCartStep.verificationPriceSecond();
+        shoppingCartStep.verificationTotalSecond();
     }
+
 }

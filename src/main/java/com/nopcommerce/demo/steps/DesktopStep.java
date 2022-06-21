@@ -9,5 +9,17 @@ public class DesktopStep {
     public void buttonAdd() throws InterruptedException {
         desktopPageObject.ButtonAdd();
     }
+    @Step
+    public void buttonAddTwo() throws InterruptedException {
+        desktopPageObject.ButtonAddTwo();
+    }
+    @Step
+    public void handleAdvice() throws InterruptedException {
+        desktopPageObject.handleAdvice();
+    }
+    @Step
+    public void saveNamePrice(){
+        desktopPageObject.saveNamePrice();
+    }
 
 }

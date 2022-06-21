@@ -4,13 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="44abde59-26c8-487d-9c21-f3631cd02527" name="Changes" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/gradle.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/gradle.xml" afterDir="false" />
+    <list default="true" id="44abde59-26c8-487d-9c21-f3631cd02527" name="Changes" comment="first commit">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/DesktopPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/DesktopPageObject.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/ShoppingCartPageObject.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/pageObjects/ShoppingCartPageObject.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/ProductOnePageStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/ProductOnePageStep.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/DesktopStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/DesktopStep.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/ShoppingCartStep.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/main/java/com/nopcommerce/demo/steps/ShoppingCartStep.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/test/java/com/nopcommerce/demo/stepdefinitions/PurchasingProcessStepDefinition.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/java/com/nopcommerce/demo/stepdefinitions/PurchasingProcessStepDefinition.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/test/resources/com.nopcommerce.demo/com.nopcommerce.demo.feature" beforeDir="false" afterPath="$PROJECT_DIR$/src/test/resources/com.nopcommerce.demo/com.nopcommerce.demo.feature" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0.xml" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/SERENITY-JUNIT-e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/serenity/browser-chrome.properties" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/browser-chrome.properties" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/target/site/serenity/e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0.html" beforeDir="false" afterPath="$PROJECT_DIR$/target/site/serenity/e48483e9df1c83d7847e87522bafac818ec754d03dc5debc27fd97c352b985e0.html" afterDir="false" />
@@ -85,7 +86,7 @@
       <recent name="C:\Users\Isa\IdeaProjects\automation_pruebas\src\test\resources\com.nopcommerce.demo" />
     </key>
   </component>
-  <component name="RunManager" selected="Gradle.Tests in 'com.nopcommerce.demo.runners'">
+  <component name="RunManager" selected="Gradle.PurchasingProcessRunner">
     <configuration name="PurchasingProcessRunner" type="GradleRunConfiguration" factoryName="Gradle" temporary="true">
       <ExternalSystemSettings>
         <option name="executionName" />
@@ -134,8 +135,8 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Gradle.Tests in 'com.nopcommerce.demo.runners'" />
         <item itemvalue="Gradle.PurchasingProcessRunner" />
+        <item itemvalue="Gradle.Tests in 'com.nopcommerce.demo.runners'" />
       </list>
     </recent_temporary>
   </component>
